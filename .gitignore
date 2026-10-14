@@ -1,0 +1,16 @@
+# Quarto
+/.quarto/
+/_site/
+*_files/
+**/*.quarto_ipynb*
+.ipynb_checkpoints/
+
+# Local working files and caches
+/.work/
+.make-tmp/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+
+**/*.quarto_ipynb

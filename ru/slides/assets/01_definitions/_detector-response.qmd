@@ -1,0 +1,45 @@
+```{=html}
+<figure class="rte-observable-scene" data-rte-observable="detector">
+<svg viewBox="0 0 700 430" role="img" aria-labelledby="rte01-observable-detector-title rte01-observable-detector-desc">
+<title id="rte01-observable-detector-title">Направление прихода и отклик ОМ</title>
+<desc id="rte01-observable-detector-desc">Луч распространяется вправо. Ось лицевой стороны ОМ направлена навстречу лучу; учебная угловая характеристика даёт единичный нормированный отклик. Поворот оси меняет отклик на луч. Для изотропного поля средний отклик равен одной второй при любом повороте.</desc>
+<defs>
+<marker id="rte01-observable-detector-cyan" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#80dcdf" stroke-width="1.5"/></marker>
+<marker id="rte01-observable-detector-gold" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#f2cf83" stroke-width="1.5"/></marker>
+</defs>
+<foreignObject x="10" y="0" width="680" height="60"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-observable-muted" style="justify-content:center" >\(a(c)=\frac{1+c}{2}\) — учебная характеристика</div></foreignObject>
+<g data-rte-observable-beam>
+<path class="rte-observable-ray" d="M45 205 H302" marker-end="url(#rte01-observable-detector-cyan)"/>
+<foreignObject x="80" y="130" width="150" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-observable-cyan" style="justify-content:center" >\(\hat{\mathbf s}\longrightarrow\)</div></foreignObject>
+</g>
+<g data-rte-observable-isotropic style="display:none"><path class="rte-observable-ray" d="M505.0 205.0 L410.0 205.0" marker-end="url(#rte01-observable-detector-cyan)"/>
+<path class="rte-observable-ray" d="M459.6 314.6 L392.4 247.4" marker-end="url(#rte01-observable-detector-cyan)"/>
+<path class="rte-observable-ray" d="M350.0 360.0 L350.0 265.0" marker-end="url(#rte01-observable-detector-cyan)"/>
+<path class="rte-observable-ray" d="M240.4 314.6 L307.6 247.4" marker-end="url(#rte01-observable-detector-cyan)"/>
+<path class="rte-observable-ray" d="M195.0 205.0 L290.0 205.0" marker-end="url(#rte01-observable-detector-cyan)"/>
+<path class="rte-observable-ray" d="M240.4 95.4 L307.6 162.6" marker-end="url(#rte01-observable-detector-cyan)"/>
+<path class="rte-observable-ray" d="M350.0 50.0 L350.0 145.0" marker-end="url(#rte01-observable-detector-cyan)"/>
+<path class="rte-observable-ray" d="M459.6 95.4 L392.4 162.6" marker-end="url(#rte01-observable-detector-cyan)"/></g>
+<circle class="rte-observable-outline" cx="350" cy="205" r="35"/>
+<text x="350" y="214" text-anchor="middle">ОМ</text>
+<path class="rte-observable-axis" data-rte-observable-axis d="M350 205 L218 205" marker-end="url(#rte01-observable-detector-gold)"/>
+<foreignObject x="154" y="205" width="70" height="56"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-observable-gold" style="justify-content:center" data-rte-observable-axis-label>\(\hat{\mathbf o}\)</div></foreignObject>
+<g data-rte-observable-beam-values>
+<foreignObject x="5" y="325" width="345" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math " style="justify-content:center" data-rte-observable-c>\(c=-\hat{\mathbf s}\cdot\hat{\mathbf o}=1.00\)</div></foreignObject>
+<foreignObject x="430" y="325" width="240" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math " style="justify-content:center" data-rte-observable-a>\(a(c)=1.00\)</div></foreignObject>
+</g>
+<g data-rte-observable-isotropic-values style="display:none">
+<foreignObject x="5" y="323" width="345" height="62"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math " style="justify-content:center" >\(\langle a\rangle_{\Omega}=\frac12\)</div></foreignObject>
+<foreignObject x="430" y="325" width="240" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math " style="justify-content:center" >\(\mathbf J=0\)</div></foreignObject>
+</g>
+<foreignObject x="170" y="374" width="360" height="56"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-observable-cyan" style="justify-content:center" data-rte-observable-rate>\(\frac{R}{A\eta F}=1.00\)</div></foreignObject>
+</svg>
+<div class="rte-observable-controls" hidden>
+<label for="rte01-observable-field">Поле</label>
+<select id="rte01-observable-field" data-rte-observable-field><option value="beam">Луч</option><option value="isotropic">Изотропное поле</option></select>
+<label for="rte01-observable-angle" data-rte-observable-angle-output>\(\alpha=0^{\circ}\)</label>
+<input id="rte01-observable-angle" data-rte-observable-angle type="range" min="0" max="180" value="0" step="1" aria-label="Поворот оси ОМ относительно встречного направления">
+</div>
+<figcaption data-rte-observable-status role="status" aria-live="polite">\(A\) и \(\eta\) фиксированы. Для луча и изотропного поля задана одинаковая полная интенсивность \(F\).</figcaption>
+</figure>
+```

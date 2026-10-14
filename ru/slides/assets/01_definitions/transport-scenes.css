@@ -1,0 +1,47 @@
+/* Geometry and controls are local to lecture 01. */
+.rte-transport-scene {
+  --rte-cyan: #80dcdf;
+  --rte-gold: #f2cf83;
+  --rte-muted: #b0bac0;
+  margin: 0 !important;
+  padding: 0;
+  width: 100%;
+  max-width: 700px;
+  color: #e9eeef;
+  font-family: inherit;
+  line-height: 1.2;
+}
+.rte-transport-scene .rte-scene-svg {
+  display: block;
+  width: 100%;
+  max-height: 410px;
+  margin: 0 !important;
+  overflow: visible;
+}
+.rte-scene-svg text { font-family: inherit; font-size: 28px; }
+.rte-scene-svg .rte-label { fill: #dbe2e5; }
+.rte-scene-svg .rte-muted-label { fill: #b0bac0; font-size: 24px; }
+.rte-scene-svg .rte-gold-label { fill: var(--rte-gold); }
+.rte-scene-svg .rte-cyan-label { fill: var(--rte-cyan); }
+.rte-scene-svg .rte-volume { fill: #f2cf8309; stroke: var(--rte-gold); stroke-width: 2; }
+.rte-scene-svg .rte-flight { fill: none; stroke: var(--rte-cyan); stroke-width: 2.5; }
+.rte-scene-svg .rte-normal { fill: none; stroke: var(--rte-gold); stroke-width: 2; }
+.rte-scene-svg .rte-ghost { fill: none; stroke: #829196; stroke-width: 1.6; stroke-dasharray: 7 7; }
+.rte-scene-svg .rte-dimension { fill: none; stroke: #b0bac0; stroke-width: 1.5; }
+.rte-scene-svg .rte-angular-bin { fill: #f2cf8310; stroke: #f2cf8355; stroke-width: 1.5; }
+.rte-scene-svg .rte-area { fill: none; stroke: var(--rte-cyan); stroke-width: 5; }
+.rte-scene-svg .rte-photon { fill: var(--rte-cyan); stroke: #000; stroke-width: 2; }
+.rte-scene-svg .rte-event { fill: none; stroke: #f2cf8370; stroke-width: 1.5; }
+.rte-scene-svg .rte-source { fill: #f2cf8318; stroke: var(--rte-gold); stroke-width: 2; }
+.rte-scene-svg .rte-absorption-mark { fill: none; stroke: var(--rte-gold); stroke-width: 2.8; }
+.rte-transport-scene .rte-scene-status {
+  margin: 10px 0 0;
+  color: #bfc9cd;
+  font-size: 24px;
+  line-height: 1.22;
+  text-align: left;
+  min-height: 2.44em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rte-transport-scene * { transition: none !important; }
+}

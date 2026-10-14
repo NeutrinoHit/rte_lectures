@@ -1,0 +1,48 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - ru/slides/01_definitions.qmd
+    - ru/slides/02_detector_response.qmd
+    - ru/notes/moment_reconstruction.qmd
+  resources:
+    - /shared/styles/neutrinohit-reveal.scss
+    - /shared/reveal/**
+    - /analytics/**
+    - /ru/slides/assets/01_definitions/**
+    - /ru/slides/assets/01_diffusion/**
+    - /ru/notes/assets/**
+
+lang: ru-RU
+
+website:
+  title: "Распространение света в среде"
+  site-url: "https://neutrinohit.github.io/rte_lectures/"
+  navbar:
+    left:
+      - href: https://neutrinohit.github.io/
+        text: NeutrinoHit
+      - href: https://neutrinohit.github.io/ru/education.html#light-propagation
+        text: Карта курса
+      - href: index.qmd
+        text: Курс
+  page-footer:
+    left: "© NeutrinoHit"
+    right: "Built with Quarto"
+
+format:
+  html:
+    theme: cosmo
+    css:
+      - https://neutrinohit.github.io/assets/site/neutrinohit-tokens.css
+      - https://neutrinohit.github.io/assets/site/neutrinohit-base.css
+      - https://neutrinohit.github.io/assets/site/neutrinohit-components.css
+      - https://neutrinohit.github.io/assets/site/neutrinohit-projects.css
+      - styles.css
+    toc: false
+    page-layout: article
+    include-after-body: analytics/cloudflare-web-analytics.html
+
+execute:
+  enabled: false

@@ -1,0 +1,25 @@
+```{=html}
+<figure class="rte-transport-scene" data-rte-scene="scatter-loss" data-duration="7000" data-loop="true">
+<svg class="rte-scene-svg" viewBox="0 0 700 390" role="img" aria-labelledby="rte01-scatter-loss-title rte01-scatter-loss-desc">
+<title id="rte01-scatter-loss-title">Уход из выбранного направления</title>
+<desc id="rte01-scatter-loss-desc">Один фотон движется вдоль выбранного направления s к точке x и после упругого рассеяния движется в другом направлении. Он покинул выбранный телесный угол, но остаётся в полном световом поле.</desc>
+<defs>
+<marker id="rte01-scatter-loss-cyan" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#80dcdf" stroke-width="1.5"/></marker>
+<marker id="rte01-scatter-loss-gold" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#f2cf83" stroke-width="1.5"/></marker>
+</defs>
+
+<path class="rte-angular-bin" d="M350 220 L625 172 L625 268 Z"/>
+<path class="rte-flight" d="M75 220 H350" marker-end="url(#rte01-scatter-loss-cyan)"/>
+<path class="rte-ghost" d="M350 220 H625"/>
+<path class="rte-flight" d="M350 220 L526 74" marker-end="url(#rte01-scatter-loss-cyan)"/>
+<circle class="rte-event" cx="350" cy="220" r="16"/>
+<foreignObject x="315" y="250" width="70" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-gold-label" style="justify-content:center" >\(\mathbf x\)</div></foreignObject>
+<foreignObject x="320" y="280" width="325" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-gold-label" style="justify-content:center" >выбранные \(\hat{\mathbf s},\ d\Omega\)</div></foreignObject>
+<foreignObject x="166" y="154" width="140" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-cyan-label" style="justify-content:center" >\(\hat{\mathbf s}\)</div></foreignObject>
+<foreignObject x="350" y="28" width="345" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-cyan-label" style="justify-content:center" >другое направление</div></foreignObject>
+<circle class="rte-photon" data-rte-photon="" cx="350" cy="220" r="8"/>
+
+</svg>
+<figcaption class="rte-scene-status" data-rte-status role="status" aria-live="polite">После рассеяния фотон уходит из \(d\Omega\); в полном поле он сохранён.</figcaption>
+</figure>
+```

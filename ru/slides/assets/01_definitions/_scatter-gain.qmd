@@ -1,0 +1,23 @@
+```{=html}
+<figure class="rte-transport-scene" data-rte-scene="scatter-gain" data-duration="7000" data-loop="true">
+<svg class="rte-scene-svg" viewBox="0 0 700 390" role="img" aria-labelledby="rte01-scatter-gain-title rte01-scatter-gain-desc">
+<title id="rte01-scatter-gain-title">Приход в выбранное направление</title>
+<desc id="rte01-scatter-gain-desc">Один фотон приходит в точку x из направления s штрих и при упругом рассеянии попадает в выбранный телесный угол вокруг направления s. Выбор одного входящего направления иллюстрирует один вклад в интеграл по всем направлениям.</desc>
+<defs>
+<marker id="rte01-scatter-gain-cyan" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#80dcdf" stroke-width="1.5"/></marker>
+<marker id="rte01-scatter-gain-gold" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#f2cf83" stroke-width="1.5"/></marker>
+</defs>
+
+<path class="rte-angular-bin" d="M350 200 L625 152 L625 248 Z"/>
+<path class="rte-flight" d="M145 340 L350 200" marker-end="url(#rte01-scatter-gain-cyan)"/>
+<path class="rte-flight" d="M350 200 H625" marker-end="url(#rte01-scatter-gain-cyan)"/>
+<circle class="rte-event" cx="350" cy="200" r="16"/>
+<foreignObject x="295" y="122" width="70" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-gold-label" style="justify-content:center" >\(\mathbf x\)</div></foreignObject>
+<foreignObject x="140" y="245" width="140" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-cyan-label" style="justify-content:center" >\(\hat{\mathbf s}'\)</div></foreignObject>
+<foreignObject x="320" y="260" width="325" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-gold-label" style="justify-content:center" >выбранные \(\hat{\mathbf s},\ d\Omega\)</div></foreignObject>
+<circle class="rte-photon" data-rte-photon="" cx="350" cy="200" r="8"/>
+
+</svg>
+<figcaption class="rte-scene-status" data-rte-status role="status" aria-live="polite">Рассеянный фотон приходит из \(\hat{\mathbf s}'\) в выбранный \(d\Omega\).</figcaption>
+</figure>
+```

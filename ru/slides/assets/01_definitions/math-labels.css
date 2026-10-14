@@ -1,0 +1,31 @@
+/* TeX inside SVG is HTML so MathJax uses its normal mathematical typography. */
+.rte-svg-math {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  color: #dbe2e5;
+  font-family: inherit;
+  font-size: 28px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.rte-svg-math.rte-gold-label, .rte-svg-math.rte-observable-gold { color: #f2cf83; }
+.rte-svg-math.rte-cyan-label, .rte-svg-math.rte-observable-cyan { color: #80dcdf; }
+.rte-svg-math.rte-muted-label, .rte-svg-math.rte-observable-muted { color: #b0bac0; }
+.rte-svg-math .MathJax, .rte-svg-math .MathJax_SVG, .rte-svg-math .MathJax_CHTML,
+.rte-svg-math mjx-container { margin: 0 !important; background: transparent !important; }
+.rte-svg-math .MathJax_SVG > svg, .rte-svg-math mjx-container > svg {
+  display: inline-block !important;
+  width: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  overflow: visible !important;
+  color: inherit;
+}

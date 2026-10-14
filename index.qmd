@@ -1,0 +1,106 @@
+---
+title: "Распространение света в среде"
+toc: false
+page-layout: full
+---
+
+```{=html}
+<style>
+  .quarto-title-block {
+    display: none;
+  }
+</style>
+
+<div class="course-index course-subpage">
+  <nav class="course-profile-links" aria-label="Навигация курса">
+    <a href="https://neutrinohit.github.io/">NeutrinoHit</a>
+    <a href="https://neutrinohit.github.io/ru/education.html#light-propagation">Карта курса</a>
+  </nav>
+
+  <section class="course-intro">
+    <img class="course-site-logo" src="shared/reveal/dvnlogo.png" alt="NeutrinoHit">
+    <p class="course-kicker">Курс лекций · русский язык · в работе</p>
+    <h1>Распространение света в среде</h1>
+    <p>
+      Курс лекций по 45 минут о переносе света в рассеивающей и поглощающей
+      среде: от баланса фотонов и уравнения переноса (RTE) до ожидаемого
+      сигнала оптического модуля. Сначала формулы и их смысл, затем вывод;
+      подробные выкладки расположены в табах и продолжают друг друга.
+    </p>
+    <p class="course-author-note">
+      Автор: Дмитрий Наумов. Другие курсы и материалы собраны на
+      <a href="https://neutrinohit.github.io/ru/">NeutrinoHit</a>.
+    </p>
+  </section>
+
+  <section aria-label="Лекции курса">
+    <h2 class="course-section-title">Лекции</h2>
+    <div class="course-card-grid">
+      <article class="course-card">
+        <span class="course-card-status">01 · 45 минут</span>
+        <h3>RTE и диффузионное приближение</h3>
+        <p>
+          Баланс фотонов, вывод RTE, угловые моменты и диффузионный предел.
+          Изотропная и направленная вспышки, постоянный точечный источник,
+          точные моменты и область применимости.
+        </p>
+        <div class="course-links">
+          <a href="ru/slides/01_definitions.html">Открыть лекцию</a>
+          <a href="ru/notes/moment_reconstruction.html">Дополнение</a>
+        </div>
+      </article>
+      <article class="course-card is-planned">
+        <span class="course-card-status">02 · готовится</span>
+        <h3>От светового поля к сигналу детектора</h3>
+        <p>
+          Подготовлены первые слайды: отклик ОМ, заряд и временные бины,
+          функция Грина и кэширование. Далее — симметрии источника, среды
+          и детектора.
+        </p>
+        <div class="course-links">
+          <a href="ru/slides/02_detector_response.html">Открыть начало лекции</a>
+        </div>
+      </article>
+      <article class="course-card is-planned">
+        <span class="course-card-status">Следующие лекции · готовится</span>
+        <h3>Решение RTE и отклик детектора</h3>
+        <p>
+          Путь от уравнения переноса к ожидаемому числу фотоэлектронов
+          в каждом оптическом модуле и временном бине.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-label="Дополнительные материалы">
+    <h2 class="course-section-title">Дополнительные материалы</h2>
+    <div class="course-material-grid">
+      <article class="course-material">
+        <h3>Восстановление поля по моментам</h3>
+        <p>
+          Дополнение к лекции 1: реконструкция по точным моментам
+          и её численная проверка.
+        </p>
+        <div class="course-links">
+          <a href="ru/notes/moment_reconstruction.html">Открыть</a>
+        </div>
+      </article>
+      <article class="course-material">
+        <h3>Задачи</h3>
+        <p>Упражнения к лекциям — готовятся.</p>
+      </article>
+      <article class="course-material">
+        <h3>Ноутбуки</h3>
+        <p>Вычислительные примеры — готовятся.</p>
+      </article>
+      <article class="course-material">
+        <h3>Литература</h3>
+        <p>
+          S. R. Arridge, J. C. Schotland,
+          <a href="https://arxiv.org/abs/0907.2586">Optical tomography: forward and inverse problems</a>.
+        </p>
+      </article>
+    </div>
+  </section>
+</div>
+```

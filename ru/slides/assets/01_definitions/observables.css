@@ -1,0 +1,27 @@
+/* Two local teaching figures: orientation and integration in time. */
+.rte-observable-scene {
+  --rte-observable-cyan: #80dcdf;
+  --rte-observable-gold: #f2cf83;
+  margin: 0 !important;
+  width: 100%;
+  max-width: 700px;
+  color: #e9eeef;
+  line-height: 1.2;
+}
+.rte-observable-scene svg { display: block; width: 100%; margin: 0 !important; }
+.rte-observable-scene svg text { font-family: inherit; font-size: 28px; fill: #dbe2e5; }
+.rte-observable-scene .rte-observable-muted { fill: #b0bac0; font-size: 24px; }
+.rte-observable-scene .rte-observable-cyan { fill: var(--rte-observable-cyan); }
+.rte-observable-scene .rte-observable-gold { fill: var(--rte-observable-gold); }
+.rte-observable-scene .rte-observable-ray { fill: none; stroke: var(--rte-observable-cyan); stroke-width: 3; }
+.rte-observable-scene .rte-observable-axis { fill: none; stroke: var(--rte-observable-gold); stroke-width: 3; stroke-dasharray: 7 4; }
+.rte-observable-scene .rte-observable-outline { fill: #000; stroke: #dbe2e5; stroke-width: 2; }
+.rte-observable-scene .rte-observable-plot-axis { fill: none; stroke: #b0bac0; stroke-width: 1.6; }
+.rte-observable-scene .rte-observable-bin { fill: #f2cf8320; stroke: var(--rte-observable-gold); stroke-width: 1.5; }
+.rte-observable-scene .rte-observable-window { fill: #80dcdf20; stroke: none; }
+.rte-observable-scene .rte-observable-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 8px 0 0; font-size: 24px; }
+.rte-observable-scene .rte-observable-controls[hidden], .rte-observable-scene [hidden] { display: none; }
+.rte-observable-scene select { font: inherit; color: #e9eeef; background: #000; border: 1px solid #596268; border-radius: 3px; padding: 4px; }
+.rte-observable-scene input[type="range"] { flex: 1; min-width: 100px; height: 24px; margin: 0; accent-color: var(--rte-observable-cyan); }
+.rte-observable-scene input:focus-visible, .rte-observable-scene select:focus-visible { outline: 2px solid var(--rte-observable-cyan); outline-offset: 4px; }
+.rte-observable-scene figcaption { margin: 10px 0 0; font-size: 24px; color: #bfc9cd; text-align: left; line-height: 1.22; }

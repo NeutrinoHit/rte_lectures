@@ -1,0 +1,30 @@
+```{=html}
+<figure class="rte-transport-scene">
+<svg class="rte-scene-svg" viewBox="0 0 700 425" role="img" aria-labelledby="rte01-swept-volume-title rte01-swept-volume-desc">
+<title id="rte01-swept-volume-title">Объём фотонов, пересекающих площадку</title>
+<desc id="rte01-swept-volume-desc">Площадка показана синим вертикальным отрезком. За малый интервал времени её пересекут фотоны из косого цилиндра, смещённого против направления движения. Длина бокового ребра равна пути фотона за этот интервал; высота относительно площадки — проекции этого пути на нормаль. Объём равен произведению площади на эту высоту.</desc>
+<defs>
+<marker id="rte01-swept-volume-cyan" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#80dcdf" stroke-width="1.5"/></marker>
+<marker id="rte01-swept-volume-gold" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#f2cf83" stroke-width="1.5"/></marker>
+</defs>
+
+<path class="rte-volume" d="M240 220 L490 100 L490 240 L240 360 Z"/>
+<path class="rte-ghost" d="M240 220 V360"/>
+<path class="rte-area" d="M490 100 V240"/>
+<path class="rte-flight" d="M272 294 L465 201" marker-end="url(#rte01-swept-volume-cyan)"/>
+<path class="rte-normal" d="M490 170 H620" marker-end="url(#rte01-swept-volume-gold)"/>
+<path class="rte-flight" d="M490 170 L607 114" marker-end="url(#rte01-swept-volume-cyan)"/>
+<path class="rte-normal" d="M550 170 A60 60 0 0 0 544 144"/>
+<foreignObject x="552" y="127" width="55" height="50"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-gold-label" style="justify-content:center" >\(\alpha\)</div></foreignObject>
+<foreignObject x="605" y="173" width="70" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-gold-label" style="justify-content:center" >\(\hat{\mathbf n}\)</div></foreignObject>
+<foreignObject x="611" y="82" width="65" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-cyan-label" style="justify-content:center" >\(\hat{\mathbf s}\)</div></foreignObject>
+<foreignObject x="495" y="230" width="90" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-cyan-label" style="justify-content:center" >\(dA\)</div></foreignObject>
+<foreignObject x="318" y="131" width="130" height="55" transform="rotate(-25.6 331 166)"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-gold-label" style="justify-content:center" >\(v_g\,dt\)</div></foreignObject>
+<path class="rte-dimension" d="M240 375 H490 M240 368 V382 M490 368 V382"/>
+<foreignObject x="205" y="377" width="320" height="48"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math " style="justify-content:center" >\(v_g\,dt\cos\alpha\)</div></foreignObject>
+
+</svg>
+
+<figcaption class="rte-scene-status" data-rte-status role="status" aria-live="polite">\(dV=v_g\,dt\,dA\cos\alpha\), где \(\cos\alpha=\hat{\mathbf s}\cdot\hat{\mathbf n}>0\).</figcaption>
+</figure>
+```

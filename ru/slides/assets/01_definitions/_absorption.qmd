@@ -1,0 +1,23 @@
+```{=html}
+<figure class="rte-transport-scene" data-rte-scene="absorption" data-duration="7000" data-loop="true">
+<svg class="rte-scene-svg" viewBox="0 0 700 390" role="img" aria-labelledby="rte01-absorption-title rte01-absorption-desc">
+<title id="rte01-absorption-title">Поглощение</title>
+<desc id="rte01-absorption-desc">Фотон движется вдоль выбранного направления к точке x. В точке x происходит поглощение: этот фотон перестаёт участвовать в световом поле. Продолжение пути показано только для сравнения.</desc>
+<defs>
+<marker id="rte01-absorption-cyan" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#80dcdf" stroke-width="1.5"/></marker>
+<marker id="rte01-absorption-gold" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#f2cf83" stroke-width="1.5"/></marker>
+</defs>
+
+<path class="rte-flight" d="M80 200 H340" marker-end="url(#rte01-absorption-cyan)"/>
+<path class="rte-ghost" d="M360 200 H625"/>
+<circle class="rte-event" cx="350" cy="200" r="21"/>
+<path class="rte-absorption-mark" d="M340 190 L360 210 M360 190 L340 210"/>
+<foreignObject x="315" y="227" width="70" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-gold-label" style="justify-content:center" >\(\mathbf x\)</div></foreignObject>
+<foreignObject x="145" y="119" width="130" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math " style="justify-content:center" >\(\hat{\mathbf s}\)</div></foreignObject>
+<text class="rte-muted-label" x="500" y="150" text-anchor="middle">после поглощения</text>
+<circle class="rte-photon" data-rte-photon="" cx="285" cy="200" r="8"/>
+
+</svg>
+<figcaption class="rte-scene-status" data-rte-status role="status" aria-live="polite">В точке \(\mathbf x\) поглощённый фотон перестаёт распространяться.</figcaption>
+</figure>
+```

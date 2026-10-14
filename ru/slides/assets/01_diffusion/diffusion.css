@@ -1,0 +1,16 @@
+/* Dimensionless teaching kernels; no physical water calibration. */
+.rte-diffusion-scene { margin: 0 !important; width: 100%; max-width: 700px; color: #e9eeef; line-height: 1.2; }
+.rte-diffusion-scene > svg { display: block; width: 100%; margin: 0 !important; }
+.rte-diffusion-scene .rte-diffusion-curve { fill: none; stroke: #80dcdf; stroke-width: 3; }
+.rte-diffusion-scene .rte-diffusion-axis { fill: none; stroke: #b0bac0; stroke-width: 1.6; }
+.rte-diffusion-scene .rte-diffusion-marker { fill: none; stroke: #f2cf83; stroke-width: 2; stroke-dasharray: 7 5; }
+.rte-diffusion-scene .rte-diffusion-forbidden { fill: #f2cf830b; stroke: none; }
+.rte-diffusion-scene .rte-diffusion-tail { fill: #f2cf8338; stroke: none; }
+.rte-diffusion-scene .rte-svg-math.rte-diffusion-gold { color: #f2cf83; }
+.rte-diffusion-scene .rte-svg-math.rte-diffusion-tick { justify-content: flex-end; font-size: 24px; }
+.rte-diffusion-controls { display: flex; align-items: center; gap: 14px; margin-top: 8px; font-size: 24px; }
+.rte-diffusion-controls[hidden] { display: none; }
+.rte-diffusion-controls input[type="range"] { flex: 1; min-width: 100px; height: 24px; margin: 0; accent-color: #80dcdf; }
+.rte-diffusion-controls select { font: inherit; background: #000; color: #e9eeef; border: 1px solid #596268; border-radius: 3px; padding: 4px 8px; }
+.rte-diffusion-controls input:focus-visible, .rte-diffusion-controls select:focus-visible { outline: 2px solid #80dcdf; outline-offset: 4px; }
+.rte-diffusion-scene figcaption { margin: 10px 0 0; font-size: 24px; color: #bfc9cd; line-height: 1.22; text-align: left; }

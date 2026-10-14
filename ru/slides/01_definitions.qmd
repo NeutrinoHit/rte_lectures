@@ -1,0 +1,1401 @@
+---
+title: "Распространение света в среде"
+subtitle: "Лекция 1. RTE и диффузионное приближение"
+lecture-id: "01"
+lecture-number: 1
+author: "Дмитрий В. Наумов"
+institute: "ОИЯИ"
+lang: ru-RU
+format: revealjs
+---
+
+## Уравнение переноса света
+
+:::: {.panel-tabset}
+
+### RTE
+
+При упругом рассеянии длина волны не меняется.
+Рассматриваем монохроматический свет; оптические коэффициенты задаём
+для выбранной длины волны и дальше её не обозначаем.
+
+Задаём источник $q$ и оптические свойства среды.
+Ищем интенсивность $I(\mathbf x,\hat{\mathbf s},t)$:
+
+$$
+\boxed{
+\begin{aligned}
+\frac1{v_g}\frac{\partial I}{\partial t}
++\hat{\mathbf s}\cdot\nabla I
+={}&-(\mu_a+\mu_s)I\\
+&+\mu_s\int_{S^2}
+p(\hat{\mathbf s},\hat{\mathbf s}')
+I(\mathbf x,\hat{\mathbf s}',t)\,d\Omega'
++q.
+\end{aligned}
+}
+$$
+
+Слева — изменение поля при движении фотонов.
+Справа — поглощение, рассеяние и создание фотонов.
+
+### Переменные
+
+| Обозначение | Значение | Единица |
+|---|---|---|
+| $\mathbf x$ | Положение | м |
+| $\hat{\mathbf s}$ | Направление движения, $|\hat{\mathbf s}|=1$ | Безразмерная |
+| $t$ | Время | нс |
+| $I$ | Угловая интенсивность числа фотонов | фотон/(м$^2$·нс·ср) |
+| $d\Omega$ | Элемент телесного угла на сфере направлений $S^2$ | ср |
+
+В интеграле $\hat{\mathbf s}'$ — входящее направление,
+$\hat{\mathbf s}$ — направление после рассеяния.
+
+### Среда и источник
+
+| Обозначение | Значение | Единица |
+|---|---|---|
+| $v_g=c_0/n_g$ | Групповая скорость света | м/нс |
+| $\mu_a$ | Коэффициент поглощения | м$^{-1}$ |
+| $\mu_s$ | Коэффициент рассеяния | м$^{-1}$ |
+| $p(\hat{\mathbf s},\hat{\mathbf s}')$ | Плотность вероятности исходящего направления при рассеянии | ср$^{-1}$ |
+| $q$ | Скорость создания фотонов на единицу объёма и телесного угла | фотон/(м$^3$·нс·ср) |
+
+$n_g$ — групповой показатель преломления,
+$c_0=0.299792458$ м/нс — скорость света в вакууме.
+
+### Смысл членов
+
+| Член уравнения | Что он описывает |
+|---|---|
+| $v_g^{-1}\partial_t I$ | Изменение числа фотонов в данной точке |
+| $\hat{\mathbf s}\cdot\nabla I$ | Перенос вдоль направления движения |
+| $-\mu_a I$ | Поглощение фотонов |
+| $-\mu_s I$ | Убыль из выбранного направления при рассеянии |
+| $+\mu_s\int p I(\hat{\mathbf s}')\,d\Omega'$ | Приход в выбранное направление после рассеяния |
+| $+q$ | Излучение источника |
+
+Теперь определим нормировку $I$ и выведем каждый из этих членов.
+
+::::
+
+## Что измеряет интенсивность
+
+:::: {.panel-tabset}
+
+### Фотоны в объёме
+
+Монохроматическая интенсивность $I$ учитывает все фотоны выбранного света.
+Её нормировку задаём ожидаемым числом фотонов
+в элементе объёма в момент $t$:
+
+$$
+\boxed{
+d\langle N\rangle
+=\frac{I(\mathbf x,\hat{\mathbf s},t)}{v_g}
+\,d^3x\,d\Omega.
+}
+$$
+
+Угловая плотность числа фотонов равна
+
+$$
+f=\frac{I}{v_g},\qquad
+[f]=\frac{\text{фотон}}{\text{м}^3\,\text{ср}}.
+$$
+
+$d^3x$ — пространственный объём,
+$\int_{S^2}d\Omega=4\pi$.
+
+### Фотоны через площадку
+
+::::: {.columns}
+
+::: {.column width="56%"}
+
+Площадка $dA$ имеет внешнюю нормаль $\hat{\mathbf n}$.
+Для $\hat{\mathbf s}\cdot\hat{\mathbf n}>0$ за время $dt$
+её пересекут фотоны из объёма
+
+$$
+dV=v_g\,dt\,dA\,(\hat{\mathbf s}\cdot\hat{\mathbf n}).
+$$
+
+Подставляем его в определение плотности:
+
+$$
+\begin{aligned}
+d\langle N_{\rm cross}\rangle
+&=f\,dV\,d\Omega\\
+&=I(\hat{\mathbf s}\cdot\hat{\mathbf n})
+\,dA\,dt\,d\Omega.
+\end{aligned}
+$$
+
+Интенсивность задаёт поток фотонов через площадку.
+
+:::
+
+::: {.column width="42%"}
+
+{{< include assets/01_definitions/_swept-volume.qmd >}}
+
+:::
+
+:::::
+
+::::
+
+## Условия модели и нормировки
+
+:::: {.panel-tabset}
+
+### Оптические параметры
+
+Среда однородна и стационарна. Рассеяние упругое.
+Поляризацию в этой модели не учитываем.
+
+На коротком участке пути $d\ell$:
+
+$$
+\begin{aligned}
+P(\text{поглощение})&=\mu_a\,d\ell+o(d\ell),\\
+P(\text{рассеяние})&=\mu_s\,d\ell+o(d\ell).
+\end{aligned}
+$$
+
+В вероятностях за короткое время используем $d\ell=v_g\,dt$.
+
+
+### Фазовая функция
+
+Для фотона, движущегося вдоль $\hat{\mathbf s}'$, вероятность
+выйти в угол $d\Omega$ около $\hat{\mathbf s}$ равна
+
+$$
+dP(\hat{\mathbf s}\mid\hat{\mathbf s}')
+=p(\hat{\mathbf s},\hat{\mathbf s}')\,d\Omega.
+$$
+
+Первый аргумент — исходящее направление, второй — входящее.
+
+$$
+\boxed{
+p\ge0,\qquad
+\int_{S^2}p(\hat{\mathbf s},\hat{\mathbf s}')\,d\Omega=1.
+}
+$$
+
+Нормировка выражает сохранение фотона при рассеянии.
+
+### Источник
+
+$d\langle N_{\rm created}\rangle=q\,d^3x\,d\Omega\,dt$.
+Сравним угловые распределения источника:
+
+$q=q_0h(\hat{\mathbf s})$,
+$\int_{S^2}h\,d\Omega=1$.
+
+{{< include assets/01_definitions/_source.qmd >}}
+
+::::: {.columns}
+
+::: {.column width="31%"}
+
+$$
+h=\delta_{S^2}(\hat{\mathbf s}-\hat{\mathbf s}_0).
+$$
+
+:::
+
+::: {.column width="31%"}
+
+$$
+h=\frac1{4\pi}.
+$$
+
+:::
+
+::: {.column width="36%"}
+
+$$
+\begin{gathered}
+h_C=\frac{\delta(\hat{\mathbf s}\cdot\hat{\mathbf u}-\cos\theta_C)}{2\pi},\\
+\cos\theta_C=\frac1{\beta n_{\rm ph}}.
+\end{gathered}
+$$
+
+:::
+
+:::::
+
+$\hat{\mathbf u}$ — ось сегмента, $\beta c_0$ — скорость частицы,
+$n_{\rm ph}$ — фазовый показатель преломления.
+Черенковское излучение возникает при $\beta n_{\rm ph}>1$.
+
+::::
+
+## Вывод: перенос через границу
+
+:::: {.panel-tabset}
+
+### Вход и выход
+
+::::: {.columns}
+
+::: {.column width="56%"}
+
+Выберем неподвижный слой вдоль $\hat{\mathbf s}$:
+площадь граней $A$, длина $\Delta\ell$.
+На этом шаге рассматриваем свободный перенос.
+
+Потоки через входную и выходную грани:
+
+$$
+\Phi_{\rm in}=A I_L,\qquad
+\Phi_{\rm out}=A I_R.
+$$
+
+$I_L$ и $I_R$ — интенсивности, усреднённые по граням.
+Число фотонов на единицу $d\Omega$ внутри слоя:
+
+$$
+\mathcal N=\frac{A\Delta\ell}{v_g}\,\overline I,\qquad
+\overline I=\frac1{A\Delta\ell}\int_V I\,d^3x.
+$$
+
+Без источника и взаимодействий баланс равен
+
+$$
+\boxed{\partial_t\mathcal N=\Phi_{\rm in}-\Phi_{\rm out}}.
+$$
+
+:::
+
+::: {.column width="42%"}
+
+{{< include assets/01_definitions/_streaming-slab.qmd >}}
+
+Если $I_R>I_L$, выходящий поток больше входящего
+и запас фотонов уменьшается.
+
+:::
+
+:::::
+
+### Пространственная производная
+
+Подставим потоки и запас фотонов в баланс:
+
+$$
+\frac{A\Delta\ell}{v_g}\,\partial_t\overline I
+=A I_L-A I_R.
+$$
+
+Разделим на объём $A\Delta\ell$:
+
+$$
+\boxed{\frac1{v_g}\partial_t\overline I
+=-\frac{I_R-I_L}{\Delta\ell}}.
+$$
+
+В локальном пределе уменьшаем сечение и длину слоя.
+Тогда $\overline I\to I$, а разность значений на гранях
+даёт производную вдоль луча:
+
+$$
+\frac{I_R-I_L}{\Delta\ell}\longrightarrow
+\frac{\partial I}{\partial\ell}
+=\hat{\mathbf s}\cdot\nabla I.
+$$
+
+Получили левую часть RTE:
+
+$$
+\boxed{\frac1{v_g}\partial_t I
++\hat{\mathbf s}\cdot\nabla I=0}
+\quad\text{для свободного переноса}.
+$$
+
+### Произвольный объём
+
+::::: {.columns}
+
+::: {.column width="56%"}
+
+Через локальную площадку поток равен
+$I(\hat{\mathbf s}\cdot\hat{\mathbf n})\,dA$.
+Внешняя нормаль задаёт знак входа и выхода.
+
+Суммируем площадки и используем теорему Гаусса:
+
+$$
+\begin{aligned}
+\Phi_{\rm out}
+&=\oint_{\partial V}I
+(\hat{\mathbf s}\cdot\hat{\mathbf n})\,dA\\
+&=\int_V\nabla\cdot(I\hat{\mathbf s})\,d^3x\\
+&=\int_V\hat{\mathbf s}\cdot\nabla I\,d^3x.
+\end{aligned}
+$$
+
+Здесь направление $\hat{\mathbf s}$ фиксировано.
+Это тот же баланс входа и выхода для произвольной границы.
+
+:::
+
+::: {.column width="42%"}
+
+{{< include assets/01_definitions/_flux.qmd >}}
+
+:::
+
+:::::
+
+::::
+
+## Вывод: поглощение и рассеяние
+
+:::: {.panel-tabset}
+
+### Поглощение
+
+::::: {.columns}
+
+::: {.column width="56%"}
+
+Выделим изменение из-за поглощения за короткое время $\Delta t$.
+Вероятность поглощения:
+
+$$
+P_a=\mu_a v_g\Delta t+o(\Delta t).
+$$
+
+В фиксированном элементе $d^3x\,d\Omega$ находилось
+$d\langle N\rangle=f(t)d^3x\,d\Omega$ фотонов.
+Его убыль даёт изменение плотности:
+
+$$
+\begin{aligned}
+\Delta_a[d\langle N\rangle]&=-P_a f(t)d^3x\,d\Omega,\\
+\Delta_a f&=-\mu_a v_g f(t)\Delta t+o(\Delta t).
+\end{aligned}
+$$
+
+Сначала делим изменение на прошедшее время:
+
+$$
+\frac{\Delta_a f}{\Delta t}=-\mu_a v_g f(t)+o(1).
+$$
+
+Затем берём предел. Так возникает вклад в производную:
+
+$$
+\boxed{
+\left(\partial_t f\right)_a
+=\lim_{\Delta t\to0}\frac{\Delta_a f}{\Delta t}
+=-\mu_a v_g f=-\mu_a I.
+}
+$$
+
+:::
+
+::: {.column width="42%"}
+
+{{< include assets/01_definitions/_absorption.qmd >}}
+
+:::
+
+:::::
+
+### Уход из направления
+
+::::: {.columns}
+
+::: {.column width="56%"}
+
+За $\Delta t$ рассеивается доля
+$P_s=\mu_s v_g\Delta t+o(\Delta t)$ фотонов
+выбранного направления $\hat{\mathbf s}$.
+
+Её вклад в изменение плотности:
+
+$$
+\Delta_{\rm out}f=-P_s f(t)
+=-\mu_s v_g f(t)\Delta t+o(\Delta t).
+$$
+
+Делим на интервал времени:
+
+$$
+\frac{\Delta_{\rm out}f}{\Delta t}
+=-\mu_s v_g f(t)+o(1).
+$$
+
+И переходим от конечного изменения к его скорости:
+
+$$
+\boxed{
+\left(\partial_t f\right)_{s,\rm out}
+=\lim_{\Delta t\to0}\frac{\Delta_{\rm out}f}{\Delta t}
+=-\mu_s I.
+}
+$$
+
+Фотон продолжает движение после рассеяния.
+Его вклад появится в приходе в соответствующее направление.
+
+:::
+
+::: {.column width="42%"}
+
+{{< include assets/01_definitions/_scatter-loss.qmd >}}
+
+:::
+
+:::::
+
+### Приход в направление
+
+::::: {.columns}
+
+::: {.column width="56%"}
+
+За $\Delta t$ из входящего угла $d\Omega'$ рассеивается
+$\mu_s v_g\Delta t\,f(\hat{\mathbf s}',t)d^3x\,d\Omega'$ фотонов
+в ведущем порядке по времени.
+
+Доля, попадающая в выбранный исходящий угол $d\Omega$, равна
+$p(\hat{\mathbf s},\hat{\mathbf s}')d\Omega$.
+Суммируем приход и делим на $d^3x\,d\Omega$:
+
+$$
+\Delta_{\rm in} f
+=\mu_s v_g\Delta t\int_{S^2}
+p(\hat{\mathbf s},\hat{\mathbf s}')
+f(\hat{\mathbf s}',t)\,d\Omega'+o(\Delta t).
+$$
+
+Деление на $\Delta t$ и предел дают скорость прихода:
+
+$$
+\boxed{
+\begin{aligned}
+\left(\partial_t f\right)_{s,\rm in}
+&=\lim_{\Delta t\to0}\frac{\Delta_{\rm in}f}{\Delta t}\\
+&=\mu_s\int_{S^2}
+p(\hat{\mathbf s},\hat{\mathbf s}')
+I(\hat{\mathbf s}',t)\,d\Omega'.
+\end{aligned}
+}
+$$
+
+:::
+
+::: {.column width="42%"}
+
+{{< include assets/01_definitions/_scatter-gain.qmd >}}
+
+:::
+
+:::::
+
+::::
+
+## Складываем полученные члены
+
+:::: {.panel-tabset}
+
+### Баланс в объёме
+
+С учётом источника:
+
+$$
+\begin{aligned}
+\int_V\left(\frac1{v_g}\partial_t I
++\hat{\mathbf s}\cdot\nabla I\right)d^3x
+={}&\int_V\Bigl[-(\mu_a+\mu_s)I\\
+&\quad+\mu_s\int_{S^2}p(\hat{\mathbf s},\hat{\mathbf s}')
+I(\hat{\mathbf s}')\,d\Omega'+q\Bigr]d^3x.
+\end{aligned}
+$$
+
+Объём $V$ произволен, поэтому равны подынтегральные выражения.
+Получили RTE, с которого начали лекцию.
+
+### Через плотность
+
+Подставляем $I=v_g f$.
+В однородной стационарной среде:
+
+$$
+\boxed{
+\begin{aligned}
+\partial_t f+v_g\hat{\mathbf s}\cdot\nabla f
+={}&-v_g(\mu_a+\mu_s)f\\
+&+v_g\mu_s\int_{S^2}
+p(\hat{\mathbf s},\hat{\mathbf s}')
+f(\hat{\mathbf s}')\,d\Omega'+q.
+\end{aligned}
+}
+$$
+
+Все члены имеют размерность
+$\text{фотон}/(\text{м}^3\,\text{нс}\,\text{ср})$.
+
+::::
+
+## Проверка сохранения числа фотонов
+
+:::: {.panel-tabset}
+
+### Рассеяние
+
+Интегрируем приход по исходящим направлениям:
+
+$$
+\begin{aligned}
+&\mu_s\int_{S^2}d\Omega\int_{S^2}d\Omega'\,
+p(\hat{\mathbf s},\hat{\mathbf s}')I(\hat{\mathbf s}')\\
+&\quad=\mu_s\int_{S^2}I(\hat{\mathbf s}')
+\underbrace{\int_{S^2}p(\hat{\mathbf s},\hat{\mathbf s}')\,d\Omega}_{1}
+\,d\Omega'\\
+&\quad=\mu_s\int_{S^2}I(\hat{\mathbf s}')\,d\Omega'.
+\end{aligned}
+$$
+
+Этот приход сокращается с убылью
+$-\mu_s\int I\,d\Omega$.
+Рассеяние сохраняет суммарное число фотонов.
+
+### Баланс числа
+
+Введём плотность числа и плотность потока:
+
+$$
+\rho=\int_{S^2}f\,d\Omega,\qquad
+\mathbf J=\int_{S^2}\hat{\mathbf s}I\,d\Omega.
+$$
+
+Интегрирование RTE по направлениям даёт
+
+$$
+\boxed{
+\partial_t\rho+\nabla\cdot\mathbf J
+=-\mu_a v_g\rho+q_0.
+}
+$$
+
+Поглощение уменьшает число фотонов, источник увеличивает его.
+Перенос меняет число внутри конечного объёма через поток на границе.
+
+::::
+
+## Диффузионное приближение
+
+:::: {.panel-tabset}
+
+### Уравнение
+
+После многократного рассеяния поле становится почти изотропным.
+На больших пространственных и временных масштабах получаем
+
+$$
+\boxed{\partial_t\rho=D\nabla^2\rho-\alpha\rho+q_0},
+\qquad
+\boxed{\mathbf J=-D\nabla\rho}.
+$$
+
+Для однородной среды в ведущем приближении слабого поглощения:
+
+$$
+D=\frac{v_g}{3\mu_s'},\qquad
+\mu_s'=\mu_s(1-g)>0,\qquad
+\alpha=v_g\mu_a.
+$$
+
+$D$ — коэффициент диффузии, $[D]=\text{м}^2/\text{нс}$.
+$\alpha$ — скорость поглощения, $[\alpha]=\text{нс}^{-1}$.
+$g$ — средний косинус угла рассеяния.
+
+Выведем уравнение из RTE: сначала точные балансы плотности и потока,
+затем два приближения — угловое замыкание и медленная эволюция потока.
+
+### Плотность
+
+Работаем с $f=I/v_g$. Обозначим угловые интегралы:
+
+$$
+\rho=\int_{S^2}f\,d\Omega,\qquad
+\mathbf J=v_g\int_{S^2}\hat{\mathbf s}f\,d\Omega,\qquad
+q_0=\int_{S^2}q\,d\Omega.
+$$
+
+Интегрируем RTE по всем направлениям. Слева:
+
+$$
+\int_{S^2}\partial_t f\,d\Omega=\partial_t\rho,
+\qquad
+v_g\int_{S^2}\hat{\mathbf s}\cdot\nabla f\,d\Omega
+=\nabla\cdot\mathbf J.
+$$
+
+В приходе от рассеяния меняем порядок интегрирования:
+
+$$
+v_g\mu_s\int_{S^2}f(\hat{\mathbf s}')
+\underbrace{\left[\int_{S^2}p(\hat{\mathbf s},\hat{\mathbf s}')\,d\Omega\right]}_{1}
+\,d\Omega'=v_g\mu_s\rho.
+$$
+
+Он сокращается с убылью $-v_g\mu_s\rho$. Поэтому **точно**:
+
+$$
+\boxed{\partial_t\rho+\nabla\cdot\mathbf J=-\alpha\rho+q_0}.
+$$
+
+Уравнение пока не замкнуто: нужно выразить поток через плотность.
+
+### Рассеяние
+
+Пусть $p=p(\hat{\mathbf s}\cdot\hat{\mathbf s}')$.
+При фиксированном $\hat{\mathbf s}'$ исходящие направления
+симметричны относительно этой оси; поперечные компоненты среднего сокращаются:
+
+$$
+\int_{S^2}\hat{\mathbf s}\,p\,d\Omega=C\hat{\mathbf s}'.
+$$
+
+Скалярно умножаем на $\hat{\mathbf s}'$ и находим коэффициент:
+
+$$
+C=\int_{S^2}(\hat{\mathbf s}\cdot\hat{\mathbf s}')p\,d\Omega
+\equiv g,
+\qquad
+\boxed{\int_{S^2}\hat{\mathbf s}\,p\,d\Omega=g\hat{\mathbf s}'}.
+$$
+
+Теперь умножаем приход от рассеяния в RTE на $v_g\hat{\mathbf s}$:
+
+$$
+\begin{aligned}
+v_g^2\mu_s\int_{S^2}\!\int_{S^2}
+\hat{\mathbf s}\,p(\hat{\mathbf s},\hat{\mathbf s}')f(\hat{\mathbf s}')
+\,d\Omega'\,d\Omega
+&=v_g^2\mu_s g\int_{S^2}\hat{\mathbf s}'f(\hat{\mathbf s}')\,d\Omega'\\
+&=v_g\mu_s g\mathbf J.
+\end{aligned}
+$$
+
+С учётом убыли получаем
+
+$$
+v_g\mu_s g\mathbf J-v_g\mu_s\mathbf J
+=-v_g\mu_s(1-g)\mathbf J\equiv-v_g\mu_s'\mathbf J.
+$$
+
+Рассеяние сохраняет число фотонов, но уменьшает их суммарную направленность.
+
+### Поток
+
+Умножаем каждый член RTE на $v_g\hat s_i$ и интегрируем.
+Вводим второй угловой момент и момент источника:
+
+$$
+\Pi_{ij}=\int_{S^2}\hat s_i\hat s_j f\,d\Omega,
+\qquad
+q_{1,i}=\int_{S^2}\hat s_i q\,d\Omega,
+\qquad i,j=1,2,3.
+$$
+
+В левой части получаем
+
+$$
+\begin{aligned}
+v_g\int_{S^2}\hat s_i\partial_t f\,d\Omega
+&=\partial_t J_i,\\
+v_g^2\int_{S^2}\hat s_i(\hat{\mathbf s}\cdot\nabla f)\,d\Omega
+&=v_g^2\sum_{j=1}^{3}\partial_{x_j}\Pi_{ij}.
+\end{aligned}
+$$
+
+Поглощение даёт $-\alpha J_i$, источник — $v_gq_{1,i}$,
+а рассеяние уже вычислено в предыдущем табе. Следовательно, **точно**:
+
+$$
+\boxed{\partial_t\mathbf J+v_g^2\nabla\cdot\Pi
+=-(\alpha+v_g\mu_s')\mathbf J+v_g\mathbf q_1}.
+$$
+
+Здесь $(\nabla\cdot\Pi)_i=\sum_j\partial_{x_j}\Pi_{ij}$.
+Теперь неизвестен второй момент $\Pi$: нужна информация об угловой форме поля.
+
+### Сфера
+
+Вычислим интегралы по всей сфере направлений, которые понадобятся для замыкания.
+При замене $\hat{\mathbf s}\mapsto-\hat{\mathbf s}$ нечётные произведения меняют знак:
+
+$$
+\int_{S^2}\hat s_i\,d\Omega=0,
+\qquad
+\int_{S^2}\hat s_i\hat s_j\hat s_k\,d\Omega=0.
+$$
+
+Тензор второго ранга не выделяет ось. Поэтому он пропорционален
+единичной матрице $\delta_{ij}$:
+
+$$
+\int_{S^2}\hat s_i\hat s_j\,d\Omega=C\delta_{ij}.
+$$
+
+Суммируем диагональные элементы и используем $|\hat{\mathbf s}|^2=1$:
+
+$$
+3C=\int_{S^2}(\hat s_1^2+\hat s_2^2+\hat s_3^2)\,d\Omega
+=\int_{S^2}1\,d\Omega=4\pi.
+$$
+
+Итак,
+
+$$
+\boxed{\int_{S^2}\hat s_i\hat s_j\,d\Omega=\frac{4\pi}{3}\delta_{ij}}.
+$$
+
+Множитель $1/3$ возникает из равноправия трёх пространственных направлений.
+
+### Поле
+
+**Первое приближение.** Оставляем изотропную часть поля
+и малую поправку, линейную по направлению:
+
+$$
+f(\hat{\mathbf s})\simeq A+\mathbf B\cdot\hat{\mathbf s}.
+$$
+
+Определения плотности и потока вместе с угловыми интегралами дают
+
+$$
+\rho\simeq4\pi A,\qquad
+J_i\simeq v_g\sum_{j=1}^{3}B_j\frac{4\pi}{3}\delta_{ij}
+=\frac{4\pi v_g}{3}B_i.
+$$
+
+Отсюда $A=\rho/(4\pi)$, $\mathbf B=3\mathbf J/(4\pi v_g)$:
+
+$$
+f(\hat{\mathbf s})\simeq\frac{\rho}{4\pi}
++\frac{3}{4\pi v_g}\hat{\mathbf s}\cdot\mathbf J.
+$$
+
+Это угловое приближение $P_1$: отбрасываем гармоники выше первой.
+Направленная поправка мала по сравнению с изотропной частью, если
+
+$$
+\frac{|\mathbf B|}{A}=\frac{3|\mathbf J|}{v_g\rho}\ll1.
+$$
+
+### Замыкание
+
+Подставляем полученное поле во второй момент:
+
+$$
+\begin{aligned}
+\Pi_{ij}&\simeq\frac{\rho}{4\pi}\int_{S^2}\hat s_i\hat s_j\,d\Omega
++\frac{3}{4\pi v_g}\sum_{k=1}^{3}J_k
+\underbrace{\int_{S^2}\hat s_i\hat s_j\hat s_k\,d\Omega}_{0}\\
+&=\frac{\rho}{3}\delta_{ij},
+\qquad \boxed{\nabla\cdot\Pi\simeq\frac13\nabla\rho}.
+\end{aligned}
+$$
+
+В линейной поправке стоит нечётный угловой интеграл — она не даёт вклада.
+Изотропная часть даёт $\Pi_{ij}\simeq\rho\delta_{ij}/3$.
+Берём дивергенцию покомпонентно:
+
+$$
+(\nabla\cdot\Pi)_i\simeq\frac13\sum_{j=1}^{3}
+\delta_{ij}\partial_{x_j}\rho=\frac13\partial_{x_i}\rho.
+$$
+
+Второй момент выражен через плотность: система двух моментных уравнений замкнута.
+
+### Релаксация
+
+Для изотропного источника $\mathbf q_1=0$. После замыкания:
+
+$$
+\partial_t\mathbf J+(\alpha+v_g\mu_s')\mathbf J
+\simeq-\frac{v_g^2}{3}\nabla\rho.
+$$
+
+При нулевом градиенте поток затухает экспоненциально:
+
+$$
+\mathbf J(t)=\mathbf J(0)e^{-(\alpha+v_g\mu_s')t},
+\qquad \tau_*\equiv\frac{1}{v_g\mu_s'}.
+$$
+
+**Второе приближение.** После релаксации поток меняется за время $T_J\gg\tau_*$. Тогда
+
+$$
+\frac{|\partial_t\mathbf J|}{v_g\mu_s'|\mathbf J|}
+\sim\frac{\tau_*}{T_J}\ll1,
+\qquad
+\frac{\alpha}{v_g\mu_s'}=\frac{\mu_a}{\mu_s'}\ll1.
+$$
+
+Отбрасываем оба малых члена $(\partial_t+\alpha)\mathbf J$:
+
+$$
+v_g\mu_s'\mathbf J\simeq-\frac{v_g^2}{3}\nabla\rho
+\quad\Longrightarrow\quad
+\boxed{\mathbf J\simeq-\frac{v_g}{3\mu_s'}\nabla\rho=-D\nabla\rho}.
+$$
+
+Это закон Фика: поток направлен в сторону уменьшения плотности.
+
+### Диффузия
+
+Возвращаемся к точному балансу числа фотонов:
+
+$$
+\partial_t\rho+\nabla\cdot\mathbf J=-\alpha\rho+q_0.
+$$
+
+Вставляем закон Фика. В однородной среде $D$ не зависит от координат:
+
+$$
+\nabla\cdot\mathbf J\simeq-\nabla\cdot(D\nabla\rho)=-D\nabla^2\rho.
+$$
+
+Переносим этот член вправо и получаем
+
+$$
+\boxed{\partial_t\rho=D\nabla^2\rho-\alpha\rho+q_0},
+\qquad D=\frac{v_g}{3\mu_s(1-g)}.
+$$
+
+Поглощение остаётся в балансе плотности: даже малая скорость
+$\alpha$ даёт заметную потерю фотонов на больших временах.
+
+В выводе использованы почти изотропное поле, изотропный источник
+и медленные изменения на транспортных масштабах:
+
+$$
+\ell_*\equiv\frac{1}{\mu_s'},\qquad
+L_\rho\gg\ell_*,\qquad T_J\gg\tau_*,\qquad \mu_a\ll\mu_s'.
+$$
+
+$L_\rho$ — характерный масштаб изменения плотности.
+
+::::
+
+## Два известных диффузионных решения
+
+:::: {.panel-tabset}
+
+### Мгновенная вспышка
+
+::::: {.columns}
+
+::: {.column width="56%"}
+
+В момент $t=0$ в начале координат испущено $N$ фотонов.
+В бесконечной среде при $t>0$:
+
+$$
+\boxed{
+\rho(r,t)=\frac{N}{(4\pi Dt)^{3/2}}
+\exp\left(-\frac{r^2}{4Dt}-\alpha t\right),
+}\qquad r=|\mathbf x|.
+$$
+
+Это плотность фотонов, $[\rho]=\text{фотон}/\text{м}^3$.
+Начальное условие — $\rho(\mathbf x,0)=N\delta^{(3)}(\mathbf x)$.
+
+Для рисунка используем транспортные масштабы:
+
+$$
+\ell_*=(\mu_s')^{-1},\qquad
+T=\frac{t}{\tau_*},\quad R=\frac r{\ell_*},\quad
+H=\frac{\rho\ell_*^3}{N}.
+$$
+
+Здесь $a=\alpha\tau_*=0.01$ и
+$d=D\tau_*/\ell_*^2=1/3$. Шкала плотности фиксирована.
+
+:::
+
+::: {.column width="42%"}
+
+{{< include assets/01_diffusion/_flash.qmd >}}
+
+:::
+
+:::::
+
+### Проверка вспышки
+
+Дифференцирование гауссового профиля даёт
+
+$$
+\frac{\partial_r\rho}{\rho}=-\frac r{2Dt},\qquad
+\frac{\nabla^2\rho}{\rho}
+=\frac{r^2}{4D^2t^2}-\frac3{2Dt},
+$$
+
+$$
+\frac{\partial_t\rho}{\rho}
+=\frac{r^2}{4Dt^2}-\frac3{2t}-\alpha.
+$$
+
+Таким образом, $\partial_t\rho=D\nabla^2\rho-\alpha\rho$.
+Интегрирование по пространству показывает два результата:
+
+$$
+\boxed{\int\rho\,d^3x=Ne^{-\alpha t}},
+\qquad
+\boxed{
+\langle r^2\rangle
+=\frac{\int r^2\rho\,d^3x}{\int\rho\,d^3x}=6Dt.
+}
+$$
+
+Облако расширяется как $\sqrt t$.
+Поглощение уменьшает число фотонов множителем $e^{-\alpha t}$.
+
+### Постоянный источник
+
+::::: {.columns}
+
+::: {.column width="56%"}
+
+Точечный источник в начале координат непрерывно испускает
+$S$ фотонов в наносекунду. Стационарная плотность:
+
+$$
+\boxed{\rho_{\rm st}(r)=\frac{S}{4\pi Dr}e^{-r/L_D}},
+\qquad
+L_D=\sqrt{\frac D\alpha}.
+$$
+
+При отсутствии поглощения $L_D\to\infty$ и
+$\rho_{\rm st}=S/(4\pi Dr)$.
+
+На рисунке:
+
+$$
+Y=\frac{\rho_{\rm st}D\ell_*}{S},\qquad
+Y(R)=\frac{e^{-R\sqrt{3a}}}{4\pi R},\qquad
+\frac{L_D}{\ell_*}=\frac1{\sqrt{3a}}.
+$$
+
+При увеличении $a=\alpha\tau_*$ плотность убывает быстрее.
+
+:::
+
+::: {.column width="42%"}
+
+{{< include assets/01_diffusion/_stationary.qmd >}}
+
+:::
+
+:::::
+
+### Вывод стационарного профиля
+
+Уравнение с источником $q_0=S\delta^{(3)}(\mathbf x)$:
+
+$$
+D\nabla^2\rho_{\rm st}-\alpha\rho_{\rm st}
+=-S\delta^{(3)}(\mathbf x).
+$$
+
+При $r>0$ заменим $\rho_{\rm st}(r)=u(r)/r$.
+Радиальный лапласиан даёт
+
+$$
+u''-\frac{\alpha}{D}u=0
+\quad\Longrightarrow\quad
+u=C e^{-r/L_D}.
+$$
+
+Убывающее решение выбрано по условию на бесконечности.
+Нормировка определяется потоком из малой сферы около источника:
+
+$$
+4\pi r^2\left(-D\partial_r\rho_{\rm st}\right)
+\longrightarrow4\pi DC=S.
+$$
+
+Отсюда $C=S/(4\pi D)$ и получаем заявленную формулу.
+
+::::
+
+## Направленная вспышка
+
+:::: {.panel-tabset}
+
+### Результат
+
+В начале координат испущено $N$ фотонов вдоль $\hat{\mathbf n}$.
+Позднее облако расширяется диффузионно, но его центр смещён вперёд:
+
+$$
+\boxed{\rho(\mathbf x,t)\simeq
+\frac{Ne^{-\alpha t}}{(4\pi Dt)^{3/2}}
+\exp\!\left[-\frac{|\mathbf x-\ell_*\hat{\mathbf n}|^2}{4Dt}\right]},
+\qquad t\gg\tau_*,\tau_2.
+$$
+
+$\tau_2=1/\gamma_2$ — время релаксации второго углового момента;
+его определим ниже. Первая поправка к изотропной вспышке равна
+
+$$
+\rho\simeq N\left[G-\ell_*\hat{\mathbf n}\cdot\nabla G\right],
+\qquad
+G=\frac{e^{-r^2/(4Dt)-\alpha t}}{(4\pi Dt)^{3/2}}.
+$$
+
+Центр и ширину можно задать точнее: использовать моменты полного RTE,
+суммирующие все порядки рассеяния.
+
+Точные моменты: В. Аллахвердян, Д. В. Наумов,
+[§4, формулы (40)–(54)](https://arxiv.org/pdf/2401.15698).
+
+### Источник
+
+Если источник направлен, сохраняем его первый угловой момент:
+
+$$
+q_0=\int q\,d\Omega,\qquad
+\mathbf q_1=\int\hat{\mathbf s}q\,d\Omega.
+$$
+
+После углового замыкания уравнение потока имеет вид
+
+$$
+\partial_t\mathbf J+(\alpha+v_g\mu_s')\mathbf J
+\simeq-\frac{v_g^2}{3}\nabla\rho+v_g\mathbf q_1.
+$$
+
+В медленном режиме слабого поглощения:
+
+$$
+\boxed{\mathbf J\simeq-D\nabla\rho+\ell_*\mathbf q_1},
+\qquad
+\boxed{\partial_t\rho=D\nabla^2\rho-\alpha\rho+q_0
+-\ell_*\nabla\cdot\mathbf q_1}.
+$$
+
+Для однонаправленного источника $\mathbf q_1=\hat{\mathbf n}q_0$.
+Мгновенная вспышка требует отдельного разбора начальной релаксации:
+на ней нельзя сразу отбросить $\partial_t\mathbf J$.
+
+### Центр
+
+Усредняем по всему пространству и всем направлениям среди сохранившихся фотонов:
+
+$$
+\pi=\frac{f}{Ne^{-\alpha t}},\qquad
+\langle h\rangle=\int h\pi\,d^3x\,d\Omega,
+\qquad\int\pi\,d^3x\,d\Omega=1.
+$$
+
+Однородное поглощение сокращается из этих нормированных средних.
+Интегрирование RTE даёт **точные** уравнения:
+
+$$
+\frac{d\langle\hat{\mathbf s}\rangle}{dt}
+=-\frac{\langle\hat{\mathbf s}\rangle}{\tau_*},
+\qquad
+\frac{d\langle\mathbf x\rangle}{dt}=v_g\langle\hat{\mathbf s}\rangle.
+$$
+
+При $\langle\hat{\mathbf s}(0)\rangle=\hat{\mathbf n}$,
+$\langle\mathbf x(0)\rangle=0$:
+
+$$
+\boxed{\langle\hat{\mathbf s}(t)\rangle=e^{-t/\tau_*}\hat{\mathbf n}},
+\qquad
+\boxed{\mathbf m(t)\equiv\langle\mathbf x(t)\rangle
+=\ell_*(1-e^{-t/\tau_*})\hat{\mathbf n}}.
+$$
+
+При $t\ll\tau_*$ центр движется как $v_gt\hat{\mathbf n}$;
+при $t\gg\tau_*$ его смещение стремится к $\ell_*\hat{\mathbf n}$.
+
+### Второй порядок
+
+Определим **глобальные совместные** моменты:
+
+$$
+S_{ij}=\langle\hat s_i\hat s_j\rangle,\qquad
+C_{ij}=\langle x_i\hat s_j\rangle,\qquad
+X_{ij}=\langle x_ix_j\rangle.
+$$
+
+Для вращательно-инвариантной фазовой функции вводим
+
+$$
+\beta_l=\int_{S^2}P_l(\hat{\mathbf s}\cdot\hat{\mathbf s}')p\,d\Omega,
+\qquad\gamma_l=v_g\mu_s(1-\beta_l).
+$$
+
+Здесь $P_l$ — полином Лежандра, $\beta_1=g$ и $\gamma_1=1/\tau_*$.
+Квадрупольная часть углового распределения затухает со скоростью $\gamma_2$:
+
+$$
+\boxed{S(t)=\frac{\mathbf1}{3}
++e^{-\gamma_2t}\left(\hat{\mathbf n}\hat{\mathbf n}^{T}-\frac{\mathbf1}{3}\right)}.
+$$
+
+Для фазовой функции Хеньи–Гринстейна $\beta_2=g^2$.
+Для произвольной фазовой функции $\beta_2$ нужно вычислить отдельно;
+это среднее $P_2$, а не квадрат среднего косинуса.
+
+### Ковариация
+
+При движении $\dot{\mathbf x}=v_g\hat{\mathbf s}$.
+Рассеяние меняет направление, но не положение в момент столкновения.
+Отсюда **точно**:
+
+$$
+\dot C=v_gS-\gamma_1C,\qquad
+\dot X=v_g(C+C^T),\qquad C(0)=X(0)=0.
+$$
+
+Первое уравнение решаем интегрирующим множителем, затем интегрируем второе:
+
+$$
+C(t)=v_g\int_0^t e^{-\gamma_1(t-u)}S(u)\,du,
+\qquad
+X(t)=v_g\int_0^t[C(u)+C(u)^T]\,du.
+$$
+
+Ширина облака определяется центральным вторым моментом:
+
+$$
+\boxed{\Sigma(t)=X(t)-\mathbf m(t)\mathbf m(t)^T}.
+$$
+
+В силу осевой симметрии:
+
+$$
+\Sigma=\sigma_\perp^2(\mathbf1-\hat{\mathbf n}\hat{\mathbf n}^T)
++\sigma_\parallel^2\hat{\mathbf n}\hat{\mathbf n}^T.
+$$
+
+Эти моменты не являются локальным тензором $\Pi(\mathbf x,t)$ из вывода диффузии.
+
+### Гаусс
+
+Простое восстановление пространственной плотности по точным моментам:
+
+$$
+\boxed{\rho_G(\mathbf x,t)=
+\frac{Ne^{-\alpha t}}{(2\pi)^{3/2}\sqrt{\det\Sigma(t)}}
+\exp\!\left[-\frac12(\mathbf x-\mathbf m)^T
+\Sigma^{-1}(\mathbf x-\mathbf m)\right]}.
+$$
+
+При невырожденной $\Sigma$ интеграл, центр и ковариация совпадают с точными:
+
+$$
+\int\rho_G\,d^3x=Ne^{-\alpha t},\qquad
+\langle\mathbf x\rangle_G=\mathbf m,\qquad
+\operatorname{Cov}_G(\mathbf x)=\Sigma.
+$$
+
+При $t\gg\max(\gamma_1^{-1},\gamma_2^{-1})$ и $\gamma_1,\gamma_2>0$
+имеем $\Sigma=2Dt\,\mathbf1+O(\ell_*^2)$:
+получаем смещённое диффузионное облако из первого таба.
+
+Совпадение моментов не делает гауссову форму точным решением RTE.
+Она описывает позднюю пространственную плотность;
+угловое поле и причинный фронт требуют дополнительной информации.
+
+### Сравнение
+
+{{< include assets/01_diffusion/_directed_moments.qmd >}}
+
+::::
+
+## Область применимости диффузии
+
+:::: {.panel-tabset}
+
+### Масштабы
+
+Диффузия требует многократного рассеяния и почти изотропного поля.
+Характерные длина и время потери направленности:
+
+$$
+\ell_*=\frac1{\mu_s(1-g)},\qquad
+\tau_*=\frac{\ell_*}{v_g}.
+$$
+
+$\tau_2=1/\gamma_2$ также должно быть конечным: второй угловой момент
+успевает стать почти изотропным. Для принятого приближения:
+
+$$
+\boxed{
+L_\rho\gg\ell_*,\qquad
+ t\gg\max(\tau_*,\tau_2),\qquad
+ \mu_a\ll\mu_s',\qquad
+ \frac{|\mathbf J|}{v_g\rho}\ll1.
+}
+$$
+
+$L_\rho$ — масштаб пространственного изменения плотности.
+При $g$ близком к единице одной коллизии мало для потери направления:
+транспортная длина значительно больше $1/\mu_s$.
+
+Вблизи источника и на раннем фронте эти условия нарушаются.
+
+### Причинный фронт
+
+::::: {.columns}
+
+::: {.column width="56%"}
+
+Для вспышки в начале координат фотон не может пройти
+больше $v_g t$ за время $t$. Поэтому RTE даёт
+
+$$
+\rho_{\rm RTE}(r,t)=0\quad\text{при }r>v_g t.
+$$
+
+Гауссово решение диффузии положительно при любом $r$:
+
+$$
+\rho_{\rm D}(r,t)>0\quad\text{при }t>0.
+$$
+
+На рисунке без поглощения показана радиальная плотность
+
+$$
+P(R,T)=4\pi R^2 H(R,T),\qquad R> T\ \text{за фронтом}.
+$$
+
+Диффузия описывает медленно меняющийся многократно рассеянный свет.
+Ранний прямой и малорассеянный свет требуют RTE.
+
+:::
+
+::: {.column width="42%"}
+
+{{< include assets/01_diffusion/_front.qmd >}}
+
+:::
+
+:::::
+
+::::
+
+## Восстановление поля по моментам {#moment-reconstruction}
+
+:::: {.panel-tabset}
+
+### Решение
+
+**Дополнительный разбор.** По конечному числу моментов поле не определяется
+однозначно. Выбираем положительное совместное распределение
+с заданными моментами и причинным носителем.
+
+Для направленной вспышки предлагаем
+
+$$
+\boxed{f_{\rm rec}=f^{(0)}+f^{(1)}+M_{\ge2}\pi_{\rm ME}},
+\qquad I_{\rm rec}=v_gf_{\rm rec}.
+$$
+
+Прямой свет $f^{(0)}$ и однократное рассеяние $f^{(1)}$ сохраняем точно.
+Для остатка используем максимум энтропии на области
+
+$$
+\mathcal D_t=\{(\mathbf x,\hat{\mathbf s}):|\mathbf x|\le v_gt,
+\ |\hat{\mathbf s}|=1\}.
+$$
+
+$\pi_{\rm ME}$ нормирована на единицу; $M_{\ge2}$ — число фотонов
+с двумя и более рассеяниями. Это предлагаемая реконструкция,
+а не ещё одно точное решение RTE.
+
+[Полный вывод, алгоритм и численная проверка](../notes/moment_reconstruction.qmd).
+
+### Вычитание
+
+Пусть $M=Ne^{-\alpha t}$ и $\eta=v_g\mu_st$.
+Массы отдельных частей известны:
+
+$$
+M_0=Me^{-\eta},\qquad M_1=M\eta e^{-\eta},
+\qquad M_{\ge2}=M[1-(1+\eta)e^{-\eta}].
+$$
+
+Для каждой функции $\phi$ — компоненты положения, направления
+или их произведения — вычисляем **остаточный** момент:
+
+$$
+\boxed{
+\langle\phi\rangle_{\ge2}
+=\frac{M\langle\phi\rangle-M_0\langle\phi\rangle_0
+-M_1\langle\phi\rangle_1}{M_{\ge2}}.
+}
+$$
+
+Именно эти значения задаём при восстановлении хвоста.
+Смешанные моменты $\langle x_i\hat s_j\rangle$ сохраняют связь
+положения с направлением; произведение двух маргинальных профилей её теряет.
+
+При малой $\eta$ вычитание требует устойчивых рядов или повышенной точности.
+
+### Критерий
+
+Максимизируем энтропию относительно меры $d^3x\,d\Omega$:
+
+$$
+H[\pi]=-\int_{\mathcal D_t}\pi\log\pi\,d^3x\,d\Omega,
+\qquad \int\pi=1,\qquad \int\phi_k\pi=m_k.
+$$
+
+Вариация с множителями Лагранжа даёт
+
+$$
+\boxed{\pi_{\rm ME}=Z^{-1}\exp\!\left[
+\mathbf a\cdot\mathbf x+\mathbf b\cdot\hat{\mathbf s}
++\mathbf x^TA\mathbf x+\mathbf x^TB\hat{\mathbf s}
++\hat{\mathbf s}^TC_s\hat{\mathbf s}\right]},
+$$
+
+внутри $\mathcal D_t$; снаружи плотность равна нулю.
+Коэффициенты подбираем по всем независимым моментам до второго порядка.
+
+При внутренних допустимых моментах энтропийный критерий выбирает
+единственное распределение. Он обеспечивает положительность и совпадение
+моментов, но сам по себе не доказывает локальную точность поля.
+
+### Проверка
+
+Выполнена проверка для HG на независимых фотонных траекториях:
+$120\,000$ на каждую пару параметров, $T=t/\tau_*$.
+Сравниваем остаток с двумя и более рассеяниями.
+
+| $g$ | $T$ | Совместная реконструкция | Произведение её маргиналей |
+|---|---:|---:|---:|
+| $0$ | $1$ | $7.4\%$ | $19.1\%$ |
+| $0.9$ | $1$ | $17.0\%$ | $38.9\%$ |
+| $0.9$ | $3$ | $5.7\%$ | $20.8\%$ |
+| $0.9$ | $10$ | $2.7\%$ | $8.7\%$ |
+
+Показано расстояние полной вариации для гистограммы
+$16\times16$ в переменных $x_\parallel/(v_gt)$ и $\hat{\mathbf s}\cdot\hat{\mathbf n}$.
+Это проверка двухмерной проекции, а не ошибка полного поля или сигнала ОМ.
+
+Все семь независимых моментных ограничений воспроизведены с абсолютной
+невязкой меньше $1.3\cdot10^{-9}$.
+На раннем времени совпадение моментов ещё не обеспечивает малую ошибку формы.
+
+::::

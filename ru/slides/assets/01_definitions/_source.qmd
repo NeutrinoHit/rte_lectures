@@ -1,0 +1,35 @@
+```{=html}
+<figure class="rte-transport-scene rte-static-scene rte-source-comparison">
+<svg class="rte-scene-svg" viewBox="0 0 1800 375" role="img" aria-labelledby="rte01-source-title rte01-source-desc">
+<title id="rte01-source-title">Три угловых распределения источника</title>
+<desc id="rte01-source-desc">Слева точечный источник испускает свет в одном направлении. В центре точечный изотропный источник: стрелки показывают несколько направлений равномерного распределения на сфере. Справа конечный прямой участок трека: в каждой точке излучение направлено под черенковским углом к оси движения. Все конусы открыты вперёд вдоль оси трека; эллипсы изображают полный азимутальный круг.</desc>
+<defs><marker id="rte01-source-cyan" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8" fill="none" stroke="#80dcdf" stroke-width="1.3"/></marker><marker id="rte01-source-gold" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8" fill="none" stroke="#f2cf83" stroke-width="1.3"/></marker></defs>
+<text class="rte-label rte-source-heading" x="280" y="35" text-anchor="middle">Одно направление</text>
+<text class="rte-label rte-source-heading" x="870" y="35" text-anchor="middle">Изотропный источник</text>
+<text class="rte-label rte-source-heading" x="1450" y="35" text-anchor="middle">Черенковский сегмент</text>
+<circle class="rte-source" cx="90" cy="200" r="9"/>
+<path class="rte-flight" d="M105 200 H485" marker-end="url(#rte01-source-cyan)"/>
+<circle class="rte-source" cx="870" cy="200" r="9"/>
+<path class="rte-flight" d="M890.0 200.0 L985.0 200.0" marker-end="url(#rte01-source-cyan)"/>
+<path class="rte-flight" d="M884.1 214.1 L951.3 281.3" marker-end="url(#rte01-source-cyan)"/>
+<path class="rte-flight" d="M870.0 220.0 L870.0 315.0" marker-end="url(#rte01-source-cyan)"/>
+<path class="rte-flight" d="M855.9 214.1 L788.7 281.3" marker-end="url(#rte01-source-cyan)"/>
+<path class="rte-flight" d="M850.0 200.0 L755.0 200.0" marker-end="url(#rte01-source-cyan)"/>
+<path class="rte-flight" d="M855.9 185.9 L788.7 118.7" marker-end="url(#rte01-source-cyan)"/>
+<path class="rte-flight" d="M870.0 180.0 L870.0 85.0" marker-end="url(#rte01-source-cyan)"/>
+<path class="rte-flight" d="M884.1 185.9 L951.3 118.7" marker-end="url(#rte01-source-cyan)"/>
+<path class="rte-cherenkov-ray" marker-end="url(#rte01-source-cyan)" d="M1260 205 L1465 115 M1260 205 L1465 295"/>
+<ellipse class="rte-cone-ring" cx="1465" cy="205" rx="18" ry="90"/>
+<path class="rte-cherenkov-ray" marker-end="url(#rte01-source-cyan)" d="M1365 205 L1570 115 M1365 205 L1570 295"/>
+<ellipse class="rte-cone-ring" cx="1570" cy="205" rx="18" ry="90"/>
+<path class="rte-cherenkov-ray" marker-end="url(#rte01-source-cyan)" d="M1470 205 L1675 115 M1470 205 L1675 295"/>
+<ellipse class="rte-cone-ring" cx="1675" cy="205" rx="18" ry="90"/>
+<path class="rte-normal rte-track-axis" d="M1220 205 H1510"/>
+<path class="rte-normal rte-track-extension" d="M1510 205 H1750" marker-end="url(#rte01-source-gold)"/>
+<path class="rte-dimension" d="M1220 205 V223 M1510 205 V223 M1220 330 H1510 M1220 323 V337 M1510 323 V337"/>
+<circle class="rte-source" cx="1260" cy="205" r="5"/><circle class="rte-source" cx="1365" cy="205" r="5"/><circle class="rte-source" cx="1470" cy="205" r="5"/>
+<path class="rte-normal" d="M1525 205 A55 55 0 0 0 1520.4 182.9"/>
+<foreignObject x="35" y="225" width="110" height="65"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-svg-math-gold" style="font-size:28px">\(\mathbf x_0\)</div></foreignObject><foreignObject x="270" y="125" width="120" height="65"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-svg-math-cyan" style="font-size:28px">\(\hat{\mathbf s}_0\)</div></foreignObject><foreignObject x="818" y="315" width="110" height="65"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-svg-math-gold" style="font-size:28px">\(\mathbf x_0\)</div></foreignObject><foreignObject x="1690" y="215" width="90" height="65"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-svg-math-gold" style="font-size:28px">\(\hat{\mathbf u}\)</div></foreignObject><foreignObject x="1330" y="324" width="80" height="50"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-svg-math-gold" style="font-size:28px">\(L\)</div></foreignObject><foreignObject x="1535" y="142" width="100" height="55"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-svg-math-gold" style="font-size:28px">\(\theta_C\)</div></foreignObject>
+</svg>
+</figure>
+```
