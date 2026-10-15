@@ -4,15 +4,14 @@ project:
   render:
     - index.qmd
     - ru/slides/01_definitions.qmd
-    - ru/slides/02_detector_response.qmd
-    - ru/notes/moment_reconstruction.qmd
+    - ru/slides/02_diffusion.qmd
+    - ru/slides/03_detector_response.qmd
   resources:
     - /shared/styles/neutrinohit-reveal.scss
     - /shared/reveal/**
     - /analytics/**
     - /ru/slides/assets/01_definitions/**
-    - /ru/slides/assets/01_diffusion/**
-    - /ru/notes/assets/**
+    - /ru/slides/assets/02_diffusion/**
 
 lang: ru-RU
 

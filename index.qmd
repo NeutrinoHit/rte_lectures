@@ -38,19 +38,29 @@ page-layout: full
     <div class="course-card-grid">
       <article class="course-card">
         <span class="course-card-status">01 · 45 минут</span>
-        <h3>RTE и диффузионное приближение</h3>
+        <h3>Уравнение переноса</h3>
         <p>
-          Баланс фотонов, вывод RTE, угловые моменты и диффузионный предел.
-          Изотропная и направленная вспышки, постоянный точечный источник,
-          точные моменты и область применимости.
+          Баланс фотонов и вывод RTE, сохранение числа фотонов.
+          Точные следствия: однородное поглощение и моменты направленной вспышки.
         </p>
         <div class="course-links">
           <a href="ru/slides/01_definitions.html">Открыть лекцию</a>
-          <a href="ru/notes/moment_reconstruction.html">Дополнение</a>
+        </div>
+      </article>
+      <article class="course-card">
+        <span class="course-card-status">02 · 45 минут</span>
+        <h3>Диффузионное приближение</h3>
+        <p>
+          Вывод из RTE, закон Фика и телеграфное уравнение. Вспышка через Фурье,
+          постоянный и направленный источники, область применимости
+          и вода нейтринного телескопа.
+        </p>
+        <div class="course-links">
+          <a href="ru/slides/02_diffusion.html">Открыть лекцию</a>
         </div>
       </article>
       <article class="course-card is-planned">
-        <span class="course-card-status">02 · готовится</span>
+        <span class="course-card-status">03 · готовится</span>
         <h3>От светового поля к сигналу детектора</h3>
         <p>
           Подготовлены первые слайды: отклик ОМ, заряд и временные бины,
@@ -58,7 +68,7 @@ page-layout: full
           и детектора.
         </p>
         <div class="course-links">
-          <a href="ru/slides/02_detector_response.html">Открыть начало лекции</a>
+          <a href="ru/slides/03_detector_response.html">Открыть начало лекции</a>
         </div>
       </article>
       <article class="course-card is-planned">
@@ -76,16 +86,6 @@ page-layout: full
     <h2 class="course-section-title">Дополнительные материалы</h2>
     <div class="course-material-grid">
       <article class="course-material">
-        <h3>Восстановление поля по моментам</h3>
-        <p>
-          Дополнение к лекции 1: реконструкция по точным моментам
-          и её численная проверка.
-        </p>
-        <div class="course-links">
-          <a href="ru/notes/moment_reconstruction.html">Открыть</a>
-        </div>
-      </article>
-      <article class="course-material">
         <h3>Задачи</h3>
         <p>Упражнения к лекциям — готовятся.</p>
       </article>
@@ -98,6 +98,10 @@ page-layout: full
         <p>
           S. R. Arridge, J. C. Schotland,
           <a href="https://arxiv.org/abs/0907.2586">Optical tomography: forward and inverse problems</a>.
+        </p>
+        <p>
+          В. Аллахвердян, Д. В. Наумов,
+          <a href="https://arxiv.org/abs/2401.15698">arXiv:2401.15698</a>, §4.
         </p>
       </article>
     </div>

@@ -1,6 +1,8 @@
 /* Static source geometry and control-volume diagrams for lecture 01. */
 .rte-transport-scene.rte-source-comparison { max-width: none; }
-.rte-source-comparison .rte-scene-svg { max-height: 375px; }
+.rte-source-comparison .rte-scene-svg { max-height: 280px; }
+/* Formula row under the source figure: the figure's width at 280 px height (viewBox 1800×375). */
+.rte-source-formulas { max-width: 1344px; margin: 0 auto; }
 .rte-static-scene .rte-svg-math {
   display: flex;
   align-items: center;

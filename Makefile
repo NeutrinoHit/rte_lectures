@@ -27,8 +27,8 @@ site: check-env ## Собрать страницу курса, лекции и �
 	find _site -type f -name '*.qmd' -delete
 	test -s _site/index.html
 	test -s _site/ru/slides/01_definitions.html
-	test -s _site/ru/slides/02_detector_response.html
-	test -s _site/ru/notes/moment_reconstruction.html
+	test -s _site/ru/slides/02_diffusion.html
+	test -s _site/ru/slides/03_detector_response.html
 
 preview: check-env ## Локальный предпросмотр сайта курса
 	$(QUARTO) preview

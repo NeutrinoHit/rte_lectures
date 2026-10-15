@@ -1,0 +1,743 @@
+---
+title: "Распространение света в среде"
+subtitle: "Лекция 2. Диффузионное приближение"
+lecture-id: "02"
+lecture-number: 2
+author: "Дмитрий В. Наумов"
+institute: "ОИЯИ"
+lang: ru-RU
+format: revealjs
+---
+
+## Диффузионное приближение
+
+:::: {.panel-tabset}
+
+### Уравнение
+
+После многократного рассеяния поле становится почти изотропным.
+На больших пространственных и временных масштабах получаем
+
+$$
+\boxed{\partial_t\rho=D\nabla^2\rho-\alpha\rho+q_0},
+\qquad
+\boxed{\mathbf J=-D\nabla\rho}.
+$$
+
+Для однородной среды в ведущем приближении слабого поглощения:
+
+$$
+D=\frac{v_g}{3\mu_s'},\qquad
+\mu_s'=\mu_s(1-g)>0,\qquad
+\alpha=v_g\mu_a.
+$$
+
+$D$ — коэффициент диффузии, $[D]=\text{м}^2/\text{нс}$.
+$\alpha$ — скорость поглощения, $[\alpha]=\text{нс}^{-1}$.
+$g$ — средний косинус угла рассеяния.
+
+Выведем уравнение из RTE: сначала точные балансы плотности и потока,
+затем два приближения — угловое замыкание и медленная эволюция потока.
+
+Асимптотический вывод: S. R. Arridge, J. C. Schotland,
+[§3.5, формулы (3.73)–(3.75)](https://arxiv.org/abs/0907.2586).
+
+### Плотность
+
+Работаем с $f=I/v_g$. Обозначим угловые интегралы:
+
+$$
+\rho=\int_{S^2}f\,d\Omega,\qquad
+\mathbf J=v_g\int_{S^2}\hat{\mathbf s}f\,d\Omega,\qquad
+q_0=\int_{S^2}q\,d\Omega.
+$$
+
+Интегрируем RTE по всем направлениям. Слева:
+
+$$
+\int_{S^2}\partial_t f\,d\Omega=\partial_t\rho,
+\qquad
+v_g\int_{S^2}\hat{\mathbf s}\cdot\nabla f\,d\Omega
+=\nabla\cdot\mathbf J.
+$$
+
+### Точный баланс
+
+В приходе от рассеяния меняем порядок интегрирования:
+
+$$
+v_g\mu_s\int_{S^2}f(\hat{\mathbf s}')
+\underbrace{\left[\int_{S^2}p(\hat{\mathbf s},\hat{\mathbf s}')\,d\Omega\right]}_{1}
+\,d\Omega'=v_g\mu_s\rho.
+$$
+
+Он сокращается с убылью $-v_g\mu_s\rho$. Поэтому **точно**:
+
+$$
+\boxed{\partial_t\rho+\nabla\cdot\mathbf J=-\alpha\rho+q_0}.
+$$
+
+Уравнение пока не замкнуто: нужно выразить поток через плотность.
+
+::::
+
+## Диффузия: баланс потока
+
+:::: {.panel-tabset}
+
+### Рассеяние
+
+Пусть $p=p(\hat{\mathbf s}\cdot\hat{\mathbf s}')$.
+При фиксированном $\hat{\mathbf s}'$ исходящие направления
+симметричны относительно этой оси; поперечные компоненты среднего сокращаются:
+
+$$
+\int_{S^2}\hat{\mathbf s}\,p\,d\Omega=C\hat{\mathbf s}'.
+$$
+
+Скалярно умножаем на $\hat{\mathbf s}'$ и находим коэффициент:
+
+$$
+C=\int_{S^2}(\hat{\mathbf s}\cdot\hat{\mathbf s}')p\,d\Omega
+\equiv g,
+\qquad
+\boxed{\int_{S^2}\hat{\mathbf s}\,p\,d\Omega=g\hat{\mathbf s}'}.
+$$
+
+### Убыль направленности
+
+Теперь умножаем приход от рассеяния в RTE на $v_g\hat{\mathbf s}$:
+
+$$
+\begin{aligned}
+v_g^2\mu_s\int_{S^2}\!\int_{S^2}
+\hat{\mathbf s}\,p(\hat{\mathbf s},\hat{\mathbf s}')f(\hat{\mathbf s}')
+\,d\Omega'\,d\Omega
+&=v_g^2\mu_s g\int_{S^2}\hat{\mathbf s}'f(\hat{\mathbf s}')\,d\Omega'\\
+&=v_g\mu_s g\mathbf J.
+\end{aligned}
+$$
+
+С учётом убыли получаем
+
+$$
+v_g\mu_s g\mathbf J-v_g\mu_s\mathbf J
+=-v_g\mu_s(1-g)\mathbf J\equiv-v_g\mu_s'\mathbf J.
+$$
+
+Рассеяние сохраняет число фотонов, но уменьшает их суммарную направленность.
+
+### Поток
+
+Умножаем каждый член RTE на $v_g\hat s_i$ и интегрируем.
+Вводим второй угловой момент и момент источника:
+
+$$
+\Pi_{ij}=\int_{S^2}\hat s_i\hat s_j f\,d\Omega,
+\qquad
+q_{1,i}=\int_{S^2}\hat s_i q\,d\Omega,
+\qquad i,j=1,2,3.
+$$
+
+В левой части получаем
+
+$$
+\begin{aligned}
+v_g\int_{S^2}\hat s_i\partial_t f\,d\Omega
+&=\partial_t J_i,\\
+v_g^2\int_{S^2}\hat s_i(\hat{\mathbf s}\cdot\nabla f)\,d\Omega
+&=v_g^2\sum_{j=1}^{3}\partial_{x_j}\Pi_{ij}.
+\end{aligned}
+$$
+
+### Баланс потока
+
+Поглощение даёт $-\alpha J_i$, источник — $v_gq_{1,i}$,
+а рассеяние уже вычислено в табе «Убыль направленности». Следовательно, **точно**:
+
+$$
+\boxed{\partial_t\mathbf J+v_g^2\nabla\cdot\Pi
+=-(\alpha+v_g\mu_s')\mathbf J+v_g\mathbf q_1}.
+$$
+
+Здесь $(\nabla\cdot\Pi)_i=\sum_j\partial_{x_j}\Pi_{ij}$.
+Теперь неизвестен второй момент $\Pi$: нужна информация об угловой форме поля.
+
+::::
+
+## Диффузия: угловое замыкание
+
+:::: {.panel-tabset}
+
+### Сфера
+
+Вычислим интегралы по всей сфере направлений, которые понадобятся для замыкания.
+При замене $\hat{\mathbf s}\mapsto-\hat{\mathbf s}$ нечётные произведения меняют знак:
+
+$$
+\int_{S^2}\hat s_i\,d\Omega=0,
+\qquad
+\int_{S^2}\hat s_i\hat s_j\hat s_k\,d\Omega=0.
+$$
+
+Тензор второго ранга не выделяет ось. Поэтому он пропорционален
+единичной матрице $\delta_{ij}$:
+
+$$
+\int_{S^2}\hat s_i\hat s_j\,d\Omega=C\delta_{ij}.
+$$
+
+### Множитель 1/3
+
+Суммируем диагональные элементы и используем $|\hat{\mathbf s}|^2=1$:
+
+$$
+3C=\int_{S^2}(\hat s_1^2+\hat s_2^2+\hat s_3^2)\,d\Omega
+=\int_{S^2}1\,d\Omega=4\pi.
+$$
+
+Итак,
+
+$$
+\boxed{\int_{S^2}\hat s_i\hat s_j\,d\Omega=\frac{4\pi}{3}\delta_{ij}}.
+$$
+
+Множитель $1/3$ возникает из равноправия трёх пространственных направлений.
+
+### Поле
+
+**Первое приближение.** Оставляем изотропную часть поля
+и малую поправку, линейную по направлению:
+
+$$
+f(\hat{\mathbf s})\simeq A+\mathbf B\cdot\hat{\mathbf s}.
+$$
+
+Определения плотности и потока вместе с угловыми интегралами дают
+
+$$
+\rho\simeq4\pi A,\qquad
+J_i\simeq v_g\sum_{j=1}^{3}B_j\frac{4\pi}{3}\delta_{ij}
+=\frac{4\pi v_g}{3}B_i.
+$$
+
+### Малость поправки
+
+Отсюда $A=\rho/(4\pi)$, $\mathbf B=3\mathbf J/(4\pi v_g)$:
+
+$$
+f(\hat{\mathbf s})\simeq\frac{\rho}{4\pi}
++\frac{3}{4\pi v_g}\hat{\mathbf s}\cdot\mathbf J.
+$$
+
+Это угловое приближение $P_1$: отбрасываем гармоники выше первой.
+Направленная поправка мала по сравнению с изотропной частью, если
+
+$$
+\frac{|\mathbf B|}{A}=\frac{3|\mathbf J|}{v_g\rho}\ll1.
+$$
+
+### Замыкание
+
+Подставляем полученное поле во второй момент:
+
+$$
+\begin{aligned}
+\Pi_{ij}&\simeq\frac{\rho}{4\pi}\int_{S^2}\hat s_i\hat s_j\,d\Omega
++\frac{3}{4\pi v_g}\sum_{k=1}^{3}J_k
+\underbrace{\int_{S^2}\hat s_i\hat s_j\hat s_k\,d\Omega}_{0}\\
+&=\frac{\rho}{3}\delta_{ij},
+\qquad \boxed{\nabla\cdot\Pi\simeq\frac13\nabla\rho}.
+\end{aligned}
+$$
+
+В линейной поправке стоит нечётный угловой интеграл — она не даёт вклада.
+Изотропная часть даёт $\Pi_{ij}\simeq\rho\delta_{ij}/3$.
+Берём дивергенцию покомпонентно:
+
+$$
+(\nabla\cdot\Pi)_i\simeq\frac13\sum_{j=1}^{3}
+\delta_{ij}\partial_{x_j}\rho=\frac13\partial_{x_i}\rho.
+$$
+
+Второй момент выражен через плотность: система двух моментных уравнений замкнута.
+
+::::
+
+## Диффузия: закон Фика
+
+:::: {.panel-tabset}
+
+### Релаксация
+
+Для изотропного источника $\mathbf q_1=0$. После замыкания:
+
+$$
+\partial_t\mathbf J+(\alpha+v_g\mu_s')\mathbf J
+\simeq-\frac{v_g^2}{3}\nabla\rho.
+$$
+
+При нулевом градиенте поток затухает экспоненциально:
+
+$$
+\mathbf J(t)=\mathbf J(0)e^{-(\alpha+v_g\mu_s')t},
+\qquad \tau_*\equiv\frac{1}{v_g\mu_s'}.
+$$
+
+### Закон Фика
+
+**Второе приближение.** После релаксации поток меняется за время $T_J\gg\tau_*$. Тогда
+
+$$
+\frac{|\partial_t\mathbf J|}{v_g\mu_s'|\mathbf J|}
+\sim\frac{\tau_*}{T_J}\ll1,
+\qquad
+\frac{\alpha}{v_g\mu_s'}=\frac{\mu_a}{\mu_s'}\ll1.
+$$
+
+Отбрасываем оба малых члена $(\partial_t+\alpha)\mathbf J$:
+
+$$
+v_g\mu_s'\mathbf J\simeq-\frac{v_g^2}{3}\nabla\rho
+\quad\Longrightarrow\quad
+\boxed{\mathbf J\simeq-\frac{v_g}{3\mu_s'}\nabla\rho=-D\nabla\rho}.
+$$
+
+Это закон Фика: поток направлен в сторону уменьшения плотности.
+
+### Диффузия
+
+Возвращаемся к точному балансу числа фотонов:
+
+$$
+\partial_t\rho+\nabla\cdot\mathbf J=-\alpha\rho+q_0.
+$$
+
+Вставляем закон Фика. В однородной среде $D$ не зависит от координат:
+
+$$
+\nabla\cdot\mathbf J\simeq-\nabla\cdot(D\nabla\rho)=-D\nabla^2\rho.
+$$
+
+Переносим этот член вправо и получаем
+
+$$
+\boxed{\partial_t\rho=D\nabla^2\rho-\alpha\rho+q_0},
+\qquad D=\frac{v_g}{3\mu_s(1-g)}.
+$$
+
+Поглощение остаётся в балансе плотности: даже малая скорость
+$\alpha$ даёт заметную потерю фотонов на больших временах.
+
+### Условия
+
+В выводе использованы почти изотропное поле, изотропный источник
+и медленные изменения на транспортных масштабах:
+
+$$
+\ell_*\equiv\frac{1}{\mu_s'},\qquad
+L_\rho\gg\ell_*,\qquad T_J\gg\tau_*,\qquad \mu_a\ll\mu_s'.
+$$
+
+$L_\rho$ — характерный масштаб изменения плотности.
+
+::::
+
+## Диффузия: телеграфное уравнение
+
+:::: {.panel-tabset}
+
+### Уравнение
+
+Закон Фика получен отбрасыванием $\partial_t\mathbf J$. Сохраним этот член.
+Для изотропного источника
+
+$$
+(\partial_t+\alpha+v_g\mu_s')\mathbf J=-\frac{v_g^2}{3}\nabla\rho,
+\qquad
+\partial_t\rho+\nabla\cdot\mathbf J=-\alpha\rho+q_0.
+$$
+
+Применим $(\partial_t+\alpha+v_g\mu_s')$ к балансу плотности
+и подставим дивергенцию потока:
+
+$$
+\boxed{(\partial_t+\alpha+v_g\mu_s')(\partial_t+\alpha)\rho
+=\frac{v_g^2}{3}\nabla^2\rho+(\partial_t+\alpha+v_g\mu_s')q_0}.
+$$
+
+Это телеграфное уравнение. При $|\partial_t|,\alpha\ll v_g\mu_s'$
+первый множитель равен $v_g\mu_s'$, и получается уравнение диффузии.
+
+### Скорость фронта
+
+Для плоской волны $\rho\propto e^{i(kx-\omega t)}$:
+
+$$
+(-i\omega+\alpha+v_g\mu_s')(-i\omega+\alpha)+\frac{v_g^2k^2}{3}=0.
+$$
+
+При $k\to\infty$
+
+$$
+\omega\simeq\pm\frac{v_gk}{\sqrt3}-i\left(\alpha+\frac{v_g\mu_s'}{2}\right),
+\qquad
+\boxed{c_{P_1}=\frac{v_g}{\sqrt3}}.
+$$
+
+Фронт телеграфного уравнения конечен, но медленнее истинного $v_gt$:
+приближение $P_1$ не описывает ранний свет.
+Без $\partial_t^2\rho$ уравнение становится параболическим:
+его решение положительно сразу во всём пространстве.
+
+::::
+
+## Диффузия: мгновенная вспышка
+
+:::: {.panel-tabset}
+
+### Мгновенная вспышка
+
+::::: {.columns}
+
+::: {.column width="62%"}
+
+В момент $t=0$ в начале координат испущено $N$ фотонов.
+В бесконечной среде при $t>0$:
+
+$$
+\boxed{
+\rho(r,t)=\frac{N}{(4\pi Dt)^{3/2}}
+\exp\left(-\frac{r^2}{4Dt}-\alpha t\right),
+}\qquad r=|\mathbf x|.
+$$
+
+Это плотность фотонов, $[\rho]=\text{фотон}/\text{м}^3$.
+Начальное условие — $\rho(\mathbf x,0)=N\delta^{(3)}(\mathbf x)$.
+
+Для рисунка используем транспортные масштабы:
+
+$$
+\ell_*=(\mu_s')^{-1},\qquad
+T=\frac{t}{\tau_*},\quad R=\frac r{\ell_*},\quad
+H=\frac{\rho\ell_*^3}{N}.
+$$
+
+Здесь $a=\alpha\tau_*=0.01$ и
+$d=D\tau_*/\ell_*^2=1/3$. Шкала плотности фиксирована.
+
+:::
+
+::: {.column width="36%"}
+
+{{< include assets/02_diffusion/_flash.qmd >}}
+
+:::
+
+:::::
+
+### Фурье
+
+Уравнение линейно, а среда однородна. Перейдём к
+$\tilde\rho(\mathbf k,t)=\int\rho\,e^{-i\mathbf k\cdot\mathbf x}d^3x$;
+тогда $\nabla\to i\mathbf k$ и $\nabla^2\to-k^2$:
+
+$$
+\partial_t\tilde\rho=-(Dk^2+\alpha)\tilde\rho,
+\qquad \tilde\rho(\mathbf k,0)=N.
+$$
+
+Каждая гармоника затухает независимо:
+
+$$
+\boxed{\tilde\rho(\mathbf k,t)=Ne^{-(Dk^2+\alpha)t}}.
+$$
+
+Короткие волны затухают быстрее: к моменту $t$ остаются $k\lesssim1/\sqrt{Dt}$.
+
+### Обратное преобразование
+
+$$
+\rho(\mathbf x,t)=Ne^{-\alpha t}\int\frac{d^3k}{(2\pi)^3}\,
+e^{i\mathbf k\cdot\mathbf x-Dtk^2}.
+$$
+
+Интеграл распадается на три одинаковых. Дополняем показатель до полного квадрата:
+
+$$
+ikx-Dtk^2=-Dt\left(k-\frac{ix}{2Dt}\right)^2-\frac{x^2}{4Dt},
+\qquad
+\int_{-\infty}^{\infty}\frac{dk}{2\pi}\,e^{ikx-Dtk^2}
+=\frac{e^{-x^2/(4Dt)}}{\sqrt{4\pi Dt}}.
+$$
+
+Произведение трёх множителей даёт формулу из первого таба.
+
+### Проверка вспышки
+
+Дифференцирование гауссового профиля даёт
+
+$$
+\frac{\partial_r\rho}{\rho}=-\frac r{2Dt},\qquad
+\frac{\nabla^2\rho}{\rho}
+=\frac{r^2}{4D^2t^2}-\frac3{2Dt},
+$$
+
+$$
+\frac{\partial_t\rho}{\rho}
+=\frac{r^2}{4Dt^2}-\frac3{2t}-\alpha.
+$$
+
+Таким образом, $\partial_t\rho=D\nabla^2\rho-\alpha\rho$.
+Интегрирование по пространству показывает два результата:
+
+$$
+\boxed{\int\rho\,d^3x=Ne^{-\alpha t}},
+\qquad
+\boxed{
+\langle r^2\rangle
+=\frac{\int r^2\rho\,d^3x}{\int\rho\,d^3x}=6Dt.
+}
+$$
+
+Облако расширяется как $\sqrt t$.
+Поглощение уменьшает число фотонов множителем $e^{-\alpha t}$.
+
+::::
+
+## Диффузия: постоянный источник
+
+:::: {.panel-tabset}
+
+### Постоянный источник
+
+::::: {.columns}
+
+::: {.column width="62%"}
+
+Точечный источник в начале координат непрерывно испускает
+$S$ фотонов в наносекунду. Стационарная плотность:
+
+$$
+\boxed{\rho_{\rm st}(r)=\frac{S}{4\pi Dr}e^{-r/L_D}},
+\qquad
+L_D=\sqrt{\frac D\alpha}.
+$$
+
+При отсутствии поглощения $L_D\to\infty$ и
+$\rho_{\rm st}=S/(4\pi Dr)$.
+
+На рисунке:
+
+$$
+Y=\frac{\rho_{\rm st}D\ell_*}{S},\qquad
+Y(R)=\frac{e^{-R\sqrt{3a}}}{4\pi R},\qquad
+\frac{L_D}{\ell_*}=\frac1{\sqrt{3a}}.
+$$
+
+При увеличении $a=\alpha\tau_*$ плотность убывает быстрее.
+
+:::
+
+::: {.column width="36%"}
+
+{{< include assets/02_diffusion/_stationary.qmd >}}
+
+:::
+
+:::::
+
+### Вывод стационарного профиля
+
+Уравнение с источником $q_0=S\delta^{(3)}(\mathbf x)$:
+
+$$
+D\nabla^2\rho_{\rm st}-\alpha\rho_{\rm st}
+=-S\delta^{(3)}(\mathbf x).
+$$
+
+При $r>0$ заменим $\rho_{\rm st}(r)=u(r)/r$.
+Радиальный лапласиан даёт
+
+$$
+u''-\frac{\alpha}{D}u=0
+\quad\Longrightarrow\quad
+u=C e^{-r/L_D}.
+$$
+
+Убывающее решение выбрано по условию на бесконечности.
+Нормировка определяется потоком из малой сферы около источника:
+
+$$
+4\pi r^2\left(-D\partial_r\rho_{\rm st}\right)
+\longrightarrow4\pi DC=S.
+$$
+
+Отсюда $C=S/(4\pi D)$ и получаем заявленную формулу.
+
+Фундаментальное решение при $\omega=0$: Arridge, Schotland,
+[§3.5, формулы (3.83)–(3.85)](https://arxiv.org/abs/0907.2586).
+
+::::
+
+## Направленная вспышка
+
+:::: {.panel-tabset}
+
+### Результат
+
+В начале координат испущено $N$ фотонов вдоль $\hat{\mathbf n}$.
+Позднее облако расширяется диффузионно, но его центр смещён вперёд:
+
+$$
+\boxed{\rho(\mathbf x,t)\simeq
+\frac{Ne^{-\alpha t}}{(4\pi Dt)^{3/2}}
+\exp\!\left[-\frac{|\mathbf x-\ell_*\hat{\mathbf n}|^2}{4Dt}\right]},
+\qquad t\gg\tau_*,\tau_2.
+$$
+
+$\tau_2=1/\gamma_2$ — время релаксации второго углового момента
+(лекция 1). Первая поправка к изотропной вспышке равна
+
+$$
+\rho\simeq N\left[G-\ell_*\hat{\mathbf n}\cdot\nabla G\right],
+\qquad
+G=\frac{e^{-r^2/(4Dt)-\alpha t}}{(4\pi Dt)^{3/2}}.
+$$
+
+Точные центр и ширину дают моменты полного RTE из лекции 1;
+они суммируют все порядки рассеяния.
+
+### Источник
+
+Если источник направлен, сохраняем его первый угловой момент:
+
+$$
+q_0=\int q\,d\Omega,\qquad
+\mathbf q_1=\int\hat{\mathbf s}q\,d\Omega.
+$$
+
+После углового замыкания уравнение потока имеет вид
+
+$$
+\partial_t\mathbf J+(\alpha+v_g\mu_s')\mathbf J
+\simeq-\frac{v_g^2}{3}\nabla\rho+v_g\mathbf q_1.
+$$
+
+В медленном режиме слабого поглощения:
+
+$$
+\boxed{\mathbf J\simeq-D\nabla\rho+\ell_*\mathbf q_1},
+\qquad
+\boxed{\partial_t\rho=D\nabla^2\rho-\alpha\rho+q_0
+-\ell_*\nabla\cdot\mathbf q_1}.
+$$
+
+Для однонаправленного источника $\mathbf q_1=\hat{\mathbf n}q_0$.
+Мгновенная вспышка требует отдельного разбора начальной релаксации:
+на ней нельзя сразу отбросить $\partial_t\mathbf J$.
+
+### Сравнение
+
+При $t\gg\gamma_1^{-1},\gamma_2^{-1}$ точные моменты лекции 1 дают
+$\mathbf m\to\ell_*\hat{\mathbf n}$ и $\Sigma=2Dt\,\mathbf1+O(\ell_*^2)$:
+центр и ширину смещённого диффузионного облака.
+
+{{< include assets/02_diffusion/_directed_moments.qmd >}}
+
+::::
+
+## Область применимости диффузии
+
+:::: {.panel-tabset}
+
+### Масштабы
+
+Диффузия требует многократного рассеяния и почти изотропного поля.
+Характерные длина и время потери направленности:
+
+$$
+\ell_*=\frac1{\mu_s(1-g)},\qquad
+\tau_*=\frac{\ell_*}{v_g}.
+$$
+
+$\tau_2=1/\gamma_2$ также должно быть конечным: второй угловой момент
+успевает стать почти изотропным. Для принятого приближения:
+
+$$
+\boxed{
+L_\rho\gg\ell_*,\qquad
+ t\gg\max(\tau_*,\tau_2),\qquad
+ \mu_a\ll\mu_s',\qquad
+ \frac{|\mathbf J|}{v_g\rho}\ll1.
+}
+$$
+
+$L_\rho$ — масштаб пространственного изменения плотности.
+При $g$ близком к единице одной коллизии мало для потери направления:
+транспортная длина значительно больше $1/\mu_s$.
+
+Вблизи источника и на раннем фронте эти условия нарушаются.
+
+### Причинный фронт
+
+::::: {.columns}
+
+::: {.column width="66%"}
+
+Для вспышки в начале координат фотон не может пройти
+больше $v_g t$ за время $t$. Поэтому RTE даёт
+
+$$
+\rho_{\rm RTE}(r,t)=0\quad\text{при }r>v_g t.
+$$
+
+Гауссово решение диффузии положительно при любом $r$:
+
+$$
+\rho_{\rm D}(r,t)>0\quad\text{при }t>0.
+$$
+
+На рисунке без поглощения показана радиальная плотность
+
+$$
+P(R,T)=4\pi R^2 H(R,T),\qquad R> T\ \text{за фронтом}.
+$$
+
+Диффузия описывает медленно меняющийся многократно рассеянный свет.
+Ранний прямой и малорассеянный свет требуют RTE.
+
+:::
+
+::: {.column width="32%"}
+
+{{< include assets/02_diffusion/_front.qmd >}}
+
+:::
+
+:::::
+
+### Вода телескопа
+
+Синтетическая вода из примеров LightHit, близкая к байкальской
+(не калибровка), на длине волны 450 нм:
+
+$$
+\mu_a=0.020\ \text{м}^{-1},\qquad
+\mu_s=0.022\ \text{м}^{-1},\qquad g=0.9.
+$$
+
+Отсюда
+
+$$
+\mu_s'=0.0022\ \text{м}^{-1},\qquad
+\ell_*\approx450\ \text{м},\qquad
+\frac1{\mu_a}=50\ \text{м},\qquad
+\frac{\mu_a}{\mu_s'}\approx9.
+$$
+
+Условие $\mu_a\ll\mu_s'$ нарушено на порядок. До поглощения фотон
+рассеивается в среднем $\mu_s/\mu_a\approx1.1$ раза и не успевает потерять
+направление. Для нейтринного телескопа нужно полное RTE.
+
+::::
