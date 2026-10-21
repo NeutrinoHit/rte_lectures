@@ -640,7 +640,7 @@ $$
 ### Сравнение
 
 При $t\gg\gamma_1^{-1},\gamma_2^{-1}$ точные моменты лекции 1 дают
-$\mathbf m\to\ell_*\hat{\mathbf n}$ и $\Sigma=2Dt\,\mathbf1+O(\ell_*^2)$:
+$\mathbf m\to\ell_*\hat{\mathbf n}$ и $\Sigma=2Dt\,\mathbb I+O(\ell_*^2)$:
 центр и ширину смещённого диффузионного облака.
 
 {{< include assets/02_diffusion/_directed_moments.qmd >}}

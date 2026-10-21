@@ -1,0 +1,6 @@
+::: {.marginnote .absolute top=225 left=1180 width=350 style="--note-font-size: 0.62em;"}
+<span class="note-title">Обозначения</span>
+$S$, $C$, $X$ — матрицы $3\times3$ с элементами $S_{ij}$, $C_{ij}$, $X_{ij}$.
+$\hat{\mathbf n}\hat{\mathbf n}^T$ — матрица с элементами $n_in_j$; $\mathbb I$ — единичная матрица.
+$X$ — не вектор $\mathbf m=\langle\mathbf x\rangle$, а матрица $\langle x_ix_j\rangle$.
+:::

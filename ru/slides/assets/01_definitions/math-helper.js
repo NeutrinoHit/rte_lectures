@@ -25,10 +25,18 @@
     document.dispatchEvent(new CustomEvent('rte:math-ready'));
     schedule();
   }
+  // The shared footer switches MathJax 2 to its output renderer and typesets the deck
+  // once. Work started before that goes through MathJax's default HTML-CSS output,
+  // which is slow inside SVG labels and delays every formula of the lecture.
+  const footer = document.querySelector('script[data-context-home]');
+  function footerPending(engine) {
+    return Boolean(footer && engine.Hub && !window.__neutrinohitMathJaxConfigured
+      && performance.now() < 15000);
+  }
   function flush() {
     if (busy || !pending.size) return;
     const engine = window.MathJax;
-    if (!engine || (!engine.typesetPromise && !engine.Hub?.Queue)) {
+    if (!engine || (!engine.typesetPromise && !engine.Hub?.Queue) || footerPending(engine)) {
       schedule(100);
       return;
     }
@@ -63,12 +71,20 @@
     set: (el, tex) => enqueue(el, tex, 'math'),
     setText: (el, text) => enqueue(el, text, 'text'),
   };
+  // The RevealJS math plugin typesets every label of the deck. Labels still holding
+  // raw LaTeX after that are typeset here; the deck is not typeset a second time.
   function init() {
     document.querySelectorAll('.rte-svg-math, figcaption, .rte-scene-status, .rte-observable-controls label').forEach(el => {
       const text = el.textContent;
       if (/\\[([]/.test(text) && !pending.has(el)) enqueue(el, text, 'text');
     });
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
-  else init();
+  function afterDeckTypeset() {
+    const engine = window.MathJax;
+    if (engine?.typesetPromise) Promise.resolve(engine.startup?.promise).then(init);
+    else if (engine?.Hub?.Queue && !footerPending(engine)) engine.Hub.Queue(init);
+    else setTimeout(afterDeckTypeset, 100);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', afterDeckTypeset, { once: true });
+  else afterDeckTypeset();
 })();

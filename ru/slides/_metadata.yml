@@ -10,6 +10,7 @@ format:
       - assets/01_definitions/observables.css
       - assets/01_definitions/math-labels.css
       - assets/01_definitions/sources-and-streaming.css
+      - assets/01_definitions/moments.css
       - assets/02_diffusion/diffusion.css
     include-after-body:
       - text: |

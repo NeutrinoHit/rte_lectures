@@ -4,8 +4,8 @@
 <title id="rte01-source-title">Три угловых распределения источника</title>
 <desc id="rte01-source-desc">Слева точечный источник испускает свет в одном направлении. В центре точечный изотропный источник: стрелки показывают несколько направлений равномерного распределения на сфере. Справа конечный прямой участок трека: в каждой точке излучение направлено под черенковским углом к оси движения. Все конусы открыты вперёд вдоль оси трека; эллипсы изображают полный азимутальный круг.</desc>
 <defs><marker id="rte01-source-cyan" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8" fill="none" stroke="#80dcdf" stroke-width="1.3"/></marker><marker id="rte01-source-gold" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8" fill="none" stroke="#f2cf83" stroke-width="1.3"/></marker></defs>
-<text class="rte-label rte-source-heading" x="280" y="35" text-anchor="middle">Одно направление</text>
-<text class="rte-label rte-source-heading" x="870" y="35" text-anchor="middle">Изотропный источник</text>
+<text class="rte-label rte-source-heading" x="280" y="35" text-anchor="middle">Точечный, одно направление</text>
+<text class="rte-label rte-source-heading" x="870" y="35" text-anchor="middle">Точечный изотропный</text>
 <text class="rte-label rte-source-heading" x="1450" y="35" text-anchor="middle">Черенковский сегмент</text>
 <circle class="rte-source" cx="90" cy="200" r="9"/>
 <path class="rte-flight" d="M105 200 H485" marker-end="url(#rte01-source-cyan)"/>

@@ -101,7 +101,9 @@ page-layout: full
         </p>
         <p>
           В. Аллахвердян, Д. В. Наумов,
-          <a href="https://arxiv.org/abs/2401.15698">arXiv:2401.15698</a>, §4.
+          <a href="https://arxiv.org/abs/2401.15698">Infinite series solution of the time-dependent radiative transfer equation in anisotropically scattering media</a>,
+          J. Quant. Spectrosc. Radiat. Transf. <b>326</b>, 109126 (2024),
+          <a href="https://doi.org/10.1016/j.jqsrt.2024.109126">doi:10.1016/j.jqsrt.2024.109126</a>.
         </p>
       </article>
     </div>

@@ -1,0 +1,2 @@
+/* Slides with a margin note on the right: the main text keeps to the left column. */
+.reveal .rte-with-note { max-width: 1110px; }
