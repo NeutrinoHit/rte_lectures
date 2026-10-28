@@ -38,7 +38,7 @@
       setMath(el.querySelector('[data-rte-observable-a]'), String.raw`a(c)=${texNumber(acceptance)}`);
       el.querySelector('[data-rte-observable-beam-values]').style.display = isotropic ? 'none' : '';
       el.querySelector('[data-rte-observable-isotropic-values]').style.display = isotropic ? '' : 'none';
-      setMath(rate, String.raw`\frac{R}{A\eta F}=${texNumber(isotropic ? 0.5 : acceptance)}`);
+      setMath(rate, String.raw`\frac{R}{A\eta\Phi}=${texNumber(isotropic ? 0.5 : acceptance)}`);
       setMath(el.querySelector('[data-rte-observable-angle-output]'), String.raw`\alpha=${alpha}^{\circ}`);
       angle.setAttribute('aria-valuetext', `${alpha} градусов`);
       el.querySelector('desc').textContent = isotropic
@@ -46,7 +46,7 @@
         : `Луч движется вправо к ОМ. Ось лицевой стороны ОМ повёрнута на ${alpha} градусов относительно встречного направления. Косинус угла прихода равен ${fmt(c)}, нормированный отклик равен ${fmt(acceptance)}.`;
       setText(status, isotropic
         ? String.raw`Изотропное поле: \(\langle a\rangle_{\Omega}=\frac12\) при любом повороте ОМ. Векторный поток \(\mathbf J=0\), но отклик положителен.`
-        : String.raw`\(A\) и \(\eta\) фиксированы. В обоих полях одинаковая полная интенсивность \(F\); поворот меняет отклик на луч.`);
+        : String.raw`\(A\) и \(\eta\) фиксированы. В обоих полях одинаковая полная интенсивность \(\Phi\); поворот меняет отклик на луч.`);
     }
     angle.addEventListener('input', draw);
     field.addEventListener('change', draw);

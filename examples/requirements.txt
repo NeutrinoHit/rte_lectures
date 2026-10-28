@@ -1,0 +1,2 @@
+lighthit[accelerate,viewer]==0.3.0a4
+matplotlib>=3.8

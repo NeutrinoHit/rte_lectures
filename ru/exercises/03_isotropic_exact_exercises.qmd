@@ -1,0 +1,13 @@
+---
+title: "Задачи: Изотропный источник: точное решение"
+subtitle: "Распространение света в среде"
+author: "Дмитрий В. Наумов"
+format:
+  html:
+    toc: true
+    toc-title: "Задачи"
+---
+
+[← Лекция](../slides/03_isotropic_exact.html) · [Все задачи](index.html) · [Практика LightHit](../practice/index.html)
+
+{{< include ../../_includes/exercises/03_isotropic_exact-ru.qmd >}}

@@ -32,7 +32,7 @@
 <foreignObject x="5" y="323" width="345" height="62"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math " style="justify-content:center" >\(\langle a\rangle_{\Omega}=\frac12\)</div></foreignObject>
 <foreignObject x="430" y="325" width="240" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math " style="justify-content:center" >\(\mathbf J=0\)</div></foreignObject>
 </g>
-<foreignObject x="170" y="374" width="360" height="56"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-observable-cyan" style="justify-content:center" data-rte-observable-rate>\(\frac{R}{A\eta F}=1.00\)</div></foreignObject>
+<foreignObject x="170" y="374" width="360" height="56"><div xmlns="http://www.w3.org/1999/xhtml" class="rte-svg-math rte-observable-cyan" style="justify-content:center" data-rte-observable-rate>\(\frac{R}{A\eta\Phi}=1.00\)</div></foreignObject>
 </svg>
 <div class="rte-observable-controls" hidden>
 <label for="rte01-observable-field">Поле</label>
@@ -40,6 +40,6 @@
 <label for="rte01-observable-angle" data-rte-observable-angle-output>\(\alpha=0^{\circ}\)</label>
 <input id="rte01-observable-angle" data-rte-observable-angle type="range" min="0" max="180" value="0" step="1" aria-label="Поворот оси ОМ относительно встречного направления">
 </div>
-<figcaption data-rte-observable-status role="status" aria-live="polite">\(A\) и \(\eta\) фиксированы. Для луча и изотропного поля задана одинаковая полная интенсивность \(F\).</figcaption>
+<figcaption data-rte-observable-status role="status" aria-live="polite">\(A\) и \(\eta\) фиксированы. Для луча и изотропного поля задана одинаковая полная интенсивность \(\Phi\).</figcaption>
 </figure>
 ```

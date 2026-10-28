@@ -1,0 +1,24 @@
+---
+title: "Задачи к первым трём лекциям"
+toc: true
+toc-title: "Задачи"
+---
+
+[← Курс](../../index.html) · [Установка и практика LightHit](../practice/index.html)
+
+В каждом наборе есть аналитическая часть и вычислительная работа с LightHit.
+Условия приведены без решений.
+
+- [Лекция 1. Уравнение переноса](01_definitions_exercises.html)
+- [Лекция 2. Диффузионное приближение](02_diffusion_exercises.html)
+- [Лекция 3. Изотропный источник](03_isotropic_exact_exercises.html)
+
+{{< include ../../_includes/exercises/01_definitions-ru.qmd >}}
+
+---
+
+{{< include ../../_includes/exercises/02_diffusion-ru.qmd >}}
+
+---
+
+{{< include ../../_includes/exercises/03_isotropic_exact-ru.qmd >}}

@@ -15,6 +15,9 @@ COPIES = [
     (ASSETS / "reveal" / "neutrinohit-reveal.scss", PROJECT / "shared" / "styles"),
     (MAP / "analytics" / "cloudflare-web-analytics.html", PROJECT / "analytics"),
 ]
+COPIES += [(ASSETS / "site" / name, PROJECT / "shared" / "site") for name in (
+    "neutrinohit-tokens.css", "neutrinohit-base.css",
+    "neutrinohit-components.css", "neutrinohit-projects.css")]
 
 
 def main() -> None:

@@ -5,13 +5,20 @@ project:
     - index.qmd
     - ru/slides/01_definitions.qmd
     - ru/slides/02_diffusion.qmd
-    - ru/slides/03_detector_response.qmd
+    - ru/slides/03_isotropic_exact.qmd
+    - ru/exercises/*.qmd
+    - ru/practice/*.qmd
   resources:
     - /shared/styles/neutrinohit-reveal.scss
     - /shared/reveal/**
     - /analytics/**
     - /ru/slides/assets/01_definitions/**
     - /ru/slides/assets/02_diffusion/**
+    - /ru/slides/assets/03_isotropic_exact/**
+    - /ru/practice/assets/**/*.svg
+    - /examples/*.py
+    - /examples/requirements.txt
+    - /shared/site/**
 
 lang: ru-RU
 
@@ -26,18 +33,22 @@ website:
         text: Карта курса
       - href: index.qmd
         text: Курс
+      - href: ru/exercises/index.qmd
+        text: Задачи
+      - href: ru/practice/index.qmd
+        text: LightHit на практике
   page-footer:
     left: "© NeutrinoHit"
-    right: "Built with Quarto"
+    right: "Распространение света в среде"
 
 format:
   html:
     theme: cosmo
     css:
-      - https://neutrinohit.github.io/assets/site/neutrinohit-tokens.css
-      - https://neutrinohit.github.io/assets/site/neutrinohit-base.css
-      - https://neutrinohit.github.io/assets/site/neutrinohit-components.css
-      - https://neutrinohit.github.io/assets/site/neutrinohit-projects.css
+      - shared/site/neutrinohit-tokens.css
+      - shared/site/neutrinohit-base.css
+      - shared/site/neutrinohit-components.css
+      - shared/site/neutrinohit-projects.css
       - styles.css
     toc: false
     page-layout: article

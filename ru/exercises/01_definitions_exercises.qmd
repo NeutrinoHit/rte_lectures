@@ -1,0 +1,13 @@
+---
+title: "Задачи: Уравнение переноса"
+subtitle: "Распространение света в среде"
+author: "Дмитрий В. Наумов"
+format:
+  html:
+    toc: true
+    toc-title: "Задачи"
+---
+
+[← Лекция](../slides/01_definitions.html) · [Все задачи](index.html) · [Практика LightHit](../practice/index.html)
+
+{{< include ../../_includes/exercises/01_definitions-ru.qmd >}}

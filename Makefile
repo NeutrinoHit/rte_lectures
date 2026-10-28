@@ -25,10 +25,20 @@ site: check-env ## Собрать страницу курса, лекции и �
 	rm -rf _site
 	$(QUARTO) render
 	find _site -type f -name '*.qmd' -delete
+	$(PYTHON) scripts/package_examples.py --output _site/downloads/lighthit-course-examples.zip
 	test -s _site/index.html
 	test -s _site/ru/slides/01_definitions.html
 	test -s _site/ru/slides/02_diffusion.html
-	test -s _site/ru/slides/03_detector_response.html
+	test -s _site/ru/slides/03_isotropic_exact.html
+	test -s _site/ru/exercises/index.html
+	test -s _site/ru/exercises/01_definitions_exercises.html
+	test -s _site/ru/exercises/02_diffusion_exercises.html
+	test -s _site/ru/exercises/03_isotropic_exact_exercises.html
+	test -s _site/ru/practice/index.html
+	test -s _site/ru/practice/01_medium.html
+	test -s _site/ru/practice/02_diffusion.html
+	test -s _site/ru/practice/03_flash.html
+	test -s _site/downloads/lighthit-course-examples.zip
 
 preview: check-env ## Локальный предпросмотр сайта курса
 	$(QUARTO) preview

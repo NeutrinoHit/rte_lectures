@@ -1,0 +1,25 @@
+.reveal iframe.rte-viewer {
+  width: 100%;
+  height: 640px;
+  border: 1px solid #3b4a56;
+  background: #000;
+}
+
+.reveal img.rte-figure {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 500px;
+}
+
+.reveal img.rte-tube {
+  max-height: 340px;
+}
+
+.reveal img.rte-short {
+  max-height: 330px;
+}
+
+.reveal img.rte-ellipsoid {
+  max-height: 500px;
+}

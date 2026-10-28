@@ -3,7 +3,7 @@ format:
     theme: [black, ../../shared/styles/neutrinohit-reveal.scss]
     logo: ../../shared/reveal/dvnlogo.png
     width: 1600
-    height: 900
+    height: 1000
     margin: 0.03
     css:
       - assets/01_definitions/transport-scenes.css
@@ -12,6 +12,7 @@ format:
       - assets/01_definitions/sources-and-streaming.css
       - assets/01_definitions/moments.css
       - assets/02_diffusion/diffusion.css
+      - assets/03_isotropic_exact/laser.css
     include-after-body:
       - text: |
           <script data-external="1" src="assets/01_definitions/math-helper.js" defer></script>
@@ -19,7 +20,7 @@ format:
           <script data-external="1" src="assets/01_definitions/observables.js" defer></script>
           <script data-external="1" src="assets/02_diffusion/diffusion.js" defer></script>
       - text: |
-          <script data-external="1" data-context-home="https://neutrinohit.github.io/ru/courses/light-propagation.html" data-context-home-label="Страница курса" src="../../shared/reveal/neutrinohit-reveal-footer.js"></script>
+          <script data-external="1" data-context-home="https://neutrinohit.github.io/rte_lectures/" data-context-home-label="Страница курса" src="../../shared/reveal/neutrinohit-reveal-footer.js"></script>
       - ../../analytics/cloudflare-web-analytics.html
     embed-resources: false
     slide-number: true

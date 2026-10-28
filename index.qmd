@@ -26,9 +26,11 @@ page-layout: full
       среде: от баланса фотонов и уравнения переноса (RTE) до ожидаемого
       сигнала оптического модуля. Сначала формулы и их смысл, затем вывод;
       подробные выкладки расположены в табах и продолжают друг друга.
+      С первой лекции устанавливаем LightHit, проверяем параметры среды и
+      запускаем рассматриваемые примеры: курс служит также руководством к пакету.
     </p>
     <p class="course-author-note">
-      Автор: Дмитрий Наумов. Другие курсы и материалы собраны на
+      Курс DN. Другие курсы и материалы собраны на
       <a href="https://neutrinohit.github.io/ru/">NeutrinoHit</a>.
     </p>
   </section>
@@ -45,6 +47,8 @@ page-layout: full
         </p>
         <div class="course-links">
           <a href="ru/slides/01_definitions.html">Открыть лекцию</a>
+          <a href="ru/exercises/01_definitions_exercises.html">Задачи 1.1–1.6</a>
+          <a href="ru/practice/01_medium.html">Практика LightHit</a>
         </div>
       </article>
       <article class="course-card">
@@ -57,18 +61,23 @@ page-layout: full
         </p>
         <div class="course-links">
           <a href="ru/slides/02_diffusion.html">Открыть лекцию</a>
+          <a href="ru/exercises/02_diffusion_exercises.html">Задачи 2.1–2.6</a>
+          <a href="ru/practice/02_diffusion.html">Сравнить RTE и диффузию</a>
         </div>
       </article>
-      <article class="course-card is-planned">
-        <span class="course-card-status">03 · готовится</span>
-        <h3>От светового поля к сигналу детектора</h3>
+      <article class="course-card">
+        <span class="course-card-status">03 · 45 минут</span>
+        <h3>Изотропный источник: точное решение</h3>
         <p>
-          Подготовлены первые слайды: отклик ОМ, заряд и временные бины,
-          функция Грина и кэширование. Далее — симметрии источника, среды
-          и детектора.
+          Изотропная вспышка и произвольная индикатриса: цепная дробь по
+          гармоникам, порядки рассеяния, первый порядок по эллипсоиду,
+          телеграфное уравнение и диффузионный предел. Лазер в LightHit: скорость расчёта,
+          event viewer и свет на расстояниях 200–300 м.
         </p>
         <div class="course-links">
-          <a href="ru/slides/03_detector_response.html">Открыть начало лекции</a>
+          <a href="ru/slides/03_isotropic_exact.html">Открыть лекцию</a>
+          <a href="ru/exercises/03_isotropic_exact_exercises.html">Задачи 3.1–3.7</a>
+          <a href="ru/practice/03_flash.html">Рассчитать вспышку</a>
         </div>
       </article>
       <article class="course-card is-planned">
@@ -87,11 +96,22 @@ page-layout: full
     <div class="course-material-grid">
       <article class="course-material">
         <h3>Задачи</h3>
-        <p>Упражнения к лекциям — готовятся.</p>
+        <p>19 задач к первым трём лекциям: аналитические выводы, размерности,
+          пределы и численная проверка с LightHit.</p>
+        <p><a href="ru/exercises/index.html">Открыть все задачи</a></p>
       </article>
       <article class="course-material">
-        <h3>Ноутбуки</h3>
-        <p>Вычислительные примеры — готовятся.</p>
+        <h3>LightHit на практике</h3>
+        <p>Установка, три запускаемых скрипта, пояснения к входу и выходу,
+          сравнение с диффузией и временной сигнал от вспышки.</p>
+        <p><a href="ru/practice/index.html">Начать с установки</a> ·
+          <a href="downloads/lighthit-course-examples.zip">Скачать примеры</a></p>
+      </article>
+      <article class="course-material">
+        <h3>Оптическая модель воды</h3>
+        <p>Коэффициенты BaikalWater в LightHit и NTSim, выбранная длина волны,
+          единицы и отдельное задание HG-индикатрисы.</p>
+        <p><a href="ru/practice/index.html#вода-и-индикатриса">Проверить параметры</a></p>
       </article>
       <article class="course-material">
         <h3>Литература</h3>
